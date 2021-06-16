@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Image, StyleSheet, Text} from 'react-native';
 const Item = ({item}) => {
-  let imageSource = {uri: item.imageUrl};
+  // let imageSource = {uri: item.imageUrl};
   // let Image_Http_URL = {
   //   uri: 'https://reactnativecode.com/wp-content/uploads/2017/05/react_thumb_install.png',
   // };
@@ -9,6 +9,10 @@ const Item = ({item}) => {
   //   '🚀 ~ file: ItemFlatList.js ~ line 6 ~ Item ~ imageSource',
   //   imageSource,
   // );
+  console.log(
+    '🚀 ~ file: ItemFlatList.js ~ line 20 ~ Item ~ item',
+    typeof item.imageUrl,
+  );
   return (
     <View style={styles.container}>
       <Image source={{uri: item.imageUrl}} resizeMode={'stretch'} />
