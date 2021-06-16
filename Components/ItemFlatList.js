@@ -1,29 +1,27 @@
 import React from 'react';
-import {View, Image, StyleSheet, Text} from 'react-native';
-const Item = ({item}) => {
-  // let imageSource = {uri: item.imageUrl};
-  // let Image_Http_URL = {
-  //   uri: 'https://reactnativecode.com/wp-content/uploads/2017/05/react_thumb_install.png',
-  // };
-  // console.log(
-  //   '🚀 ~ file: ItemFlatList.js ~ line 6 ~ Item ~ imageSource',
-  //   imageSource,
-  // );
-  console.log(
-    '🚀 ~ file: ItemFlatList.js ~ line 20 ~ Item ~ item',
-    typeof item.imageUrl,
-  );
+import {View, Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
+const Item = ({item, navigation}) => {
   return (
     <View style={styles.container}>
-      <Image source={{uri: item.imageUrl}} resizeMode={'stretch'} />
-      <Text style={styles.itemTilte}>{item.name}</Text>
-      <Text style={styles.price}>{item.price}</Text>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigation.navigate('Details', {item: item});
+        }}>
+        <Image
+          style={styles.image}
+          source={{uri: item.imageUrl}}
+          resizeMode={'stretch'}
+        />
+        <Text style={styles.itemTilte}>{item.name}</Text>
+        <Text style={styles.price}>{item.price}</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    width: 180,
   },
   itemTilte: {
     fontSize: 15,
@@ -33,6 +31,11 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 10,
     color: 'red',
+  },
+  image: {
+    height: 90,
+    width: 135,
+    resizeMode: 'cover',
   },
 });
 export default Item;

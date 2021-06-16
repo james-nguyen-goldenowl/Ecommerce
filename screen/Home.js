@@ -1,36 +1,52 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, FlatList, Image} from 'react-native';
-// import {useDispatch} from 'react-redux';
+import {View, Text, StyleSheet, FlatList, TouchableOpacity,StatusBar} from 'react-native';
 import Banner from '../Components/Banner';
 import {productList} from '../fakeApi/productData';
-// import {anyAsyncAction} from '../redux/product/productAction';
-import Item from '../Components/ItemFlatList';
-import productAction from '../redux/product/actions';
-const HomeScreen = () => {
-  // const dispatch = useDispatch();
-  const renderItem = ({item}) => <Item item={item} />;
+import ItemFlatList from '../Components/ItemFlatList';
+const HomeScreen = ({navigation}) => {
+  const [selectedId, setSelectedId] = useState(null);
+  const renderItem = ({item}) => {
+    const backgroundColor = item.id === selectedId ? '#6e3b6e' : '#f9c2ff';
+    const color = item.id === selectedId ? 'white' : 'black';
+
+    return (
+      <ItemFlatList
+        item={item}
+        onPress={() => setSelectedId(item.id)}
+        backgroundColor={{backgroundColor}}
+        textColor={{color}}
+        navigation={{navigation}}
+      />
+    );
+  };
+
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    // dispatch(productAction());
     setProducts(productList);
   }, []);
-  let Image_Http_URL = {
-    uri: 'https://reactnativecode.com/wp-content/uploads/2017/05/react_thumb_install.png',
-  };
   return (
     <View style={styles.container}>
+      <StatusBar hidden />
       <View>
         <Banner />
       </View>
       <View style={styles.content}>
-        <Text style={styles.tileGroup}>Sale</Text>
+        <View style={styles.titleGroup}>
+          <View>
+            <Text style={styles.tile}>Sale</Text>
+            <Text style={styles.subTitle}>Super summer sale</Text>
+          </View>
+          <TouchableOpacity>
+            <Text>View all</Text>
+          </TouchableOpacity>
+        </View>
         <FlatList
-          data={productList}
+          data={products}
           horizontal
           renderItem={renderItem}
           keyExtractor={item => item.id}
+          extraData={selectedId}
         />
-        {/* <Image source={{Image_Http_URL}} /> */}
       </View>
     </View>
   );
@@ -48,10 +64,21 @@ const styles = StyleSheet.create({
   content: {
     marginLeft: 10,
     marginTop: 30,
+    marginRight: 20,
   },
-  tileGroup: {
+  tile: {
     fontSize: 30,
     fontWeight: 'bold',
+  },
+  subTitle: {
+    opacity: 0.5,
+  },
+  titleGroup: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent: 'center',
+    alignItems: 'center',
   },
 });
 export default HomeScreen;
