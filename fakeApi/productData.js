@@ -1,20 +1,20 @@
 const productList = [
   {
     id: 1,
-    name: 'Romneya coulteri Harv.',
+    name: 'Romneya',
     price: '$46.04',
     imageUrl: 'http://dummyimage.com/100x100.png/dddddd/000000',
-    color: ['Indigo','Teal', 'Mauv', 'Violet'],
+    color: ['Indigo', 'Teal', 'Mauv', 'Violet'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$31.59',
     category: 'Ice Cream - Fudge Bars',
   },
   {
     id: 2,
-    name: 'Verrucaria rupestris Schrad.',
+    name: 'Verrucaria',
     price: '$38.75',
     imageUrl: 'http://dummyimage.com/207x100.png/cc0000/ffffff',
-    color: ['Indigo','Teal', 'Mauv', 'Violet'],
+    color: ['Indigo', 'Teal', 'Mauv', 'Violet'],
     size: ['S', 'M', 'L'],
     sale: '$22.56',
     category: 'Tea Leaves - Oolong',
@@ -341,7 +341,7 @@ const productList = [
   },
   {
     id: 35,
-    name: 'Elaphoglossum decoratum (Kunze) T. Moore',
+    name: 'Elaphoglossum',
     price: '$36.55',
     imageUrl: 'http://dummyimage.com/151x100.png/dddddd/000000',
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
@@ -351,7 +351,7 @@ const productList = [
   },
   {
     id: 36,
-    name: 'Liatris pycnostachya Michx.',
+    name: 'Liatris pycnostachya',
     price: '$45.59',
     imageUrl: 'http://dummyimage.com/136x100.png/ff4444/ffffff',
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
@@ -371,7 +371,7 @@ const productList = [
   },
   {
     id: 38,
-    name: 'Lycium californicum Nutt. ex A. Gray',
+    name: 'Lycium californicum',
     price: '$49.14',
     imageUrl: 'http://dummyimage.com/218x100.png/5fa2dd/ffffff',
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
@@ -381,7 +381,7 @@ const productList = [
   },
   {
     id: 39,
-    name: 'Cheirodendron fauriei Hochr.',
+    name: 'Cheirodendron',
     price: '$48.34',
     imageUrl: 'http://dummyimage.com/171x100.png/dddddd/000000',
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
@@ -391,7 +391,7 @@ const productList = [
   },
   {
     id: 40,
-    name: 'Helianthemum nashii Britton',
+    name: 'Helianthemum',
     price: '$35.73',
     imageUrl: 'http://dummyimage.com/224x100.png/cc0000/ffffff',
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
@@ -401,7 +401,7 @@ const productList = [
   },
   {
     id: 41,
-    name: 'Betula papyrifera Marshall var. cordifolia (Regel) Fernald',
+    name: 'Betula papyrifera',
     price: '$46.38',
     imageUrl: 'http://dummyimage.com/141x100.png/5fa2dd/ffffff',
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
@@ -411,7 +411,7 @@ const productList = [
   },
   {
     id: 42,
-    name: 'Euphorbia floridana Chapm.',
+    name: 'Euphorbia floridana',
     price: '$42.95',
     imageUrl: 'http://dummyimage.com/114x100.png/dddddd/000000',
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
@@ -421,7 +421,7 @@ const productList = [
   },
   {
     id: 43,
-    name: 'Astragalus lentiginosus Douglas ex Hook. var. australis Barneby',
+    name: 'Astragalus lentiginosus',
     price: '$49.48',
     imageUrl: 'http://dummyimage.com/190x100.png/dddddd/000000',
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
@@ -431,7 +431,7 @@ const productList = [
   },
   {
     id: 44,
-    name: 'Ceanothus jepsonii Greene var. albiflorus J.T. Howell',
+    name: 'Ceanothus jepsonii',
     price: '$49.23',
     imageUrl: 'http://dummyimage.com/111x100.png/ff4444/ffffff',
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
@@ -451,7 +451,7 @@ const productList = [
   },
   {
     id: 46,
-    name: 'Galactia volubilis (L.) Britton',
+    name: 'Galactia volubilis',
     price: '$41.28',
     imageUrl: 'http://dummyimage.com/233x100.png/ff4444/ffffff',
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
@@ -461,7 +461,7 @@ const productList = [
   },
   {
     id: 47,
-    name: 'Achnatherum P. Beauv.',
+    name: 'Achnatherum P',
     price: '$42.70',
     imageUrl: 'http://dummyimage.com/214x100.png/5fa2dd/ffffff',
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
@@ -471,7 +471,7 @@ const productList = [
   },
   {
     id: 48,
-    name: 'Brickellia eupatorioides (L.) Shinners var. floridana (R.W. Long) B.L. Turner',
+    name: 'Brickellia',
     price: '$48.04',
     imageUrl: 'http://dummyimage.com/125x100.png/ff4444/ffffff',
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
@@ -481,7 +481,7 @@ const productList = [
   },
   {
     id: 49,
-    name: 'Diplotomma penichrum (Tuck.) Szat.',
+    name: 'Diplotomma',
     price: '$42.92',
     imageUrl: 'http://dummyimage.com/172x100.png/5fa2dd/ffffff',
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
@@ -491,7 +491,7 @@ const productList = [
   },
   {
     id: 50,
-    name: 'Desmanthus tatuhyensis Hoehne var. brevipes (B.L. Turner) Luckow',
+    name: 'Desmanthus',
     price: '$41.57',
     imageUrl: 'http://dummyimage.com/220x100.png/cc0000/ffffff',
     color: 'Orange',
