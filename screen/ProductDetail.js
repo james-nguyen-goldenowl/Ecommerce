@@ -6,10 +6,12 @@ import {
   StatusBar,
   TouchableOpacity,
   ScrollView,
+  Button,
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from './styles/productDetailsStyle';
+import AccordionList from '../Components/AccordionList';
 const ProductDetails = ({navigation, route}) => {
   const {params} = route;
   const item = params.item;
@@ -19,7 +21,17 @@ const ProductDetails = ({navigation, route}) => {
   const [color, setColor] = useState(null);
   var sale = Number(item.sale.replace(/[^0-9.-]+/g, ''));
   var price = Number(item.price.replace(/[^0-9.-]+/g, ''));
-  let percentSale = ((price - sale) / price) * 100 + '%';
+  let percentSale = '-' + Math.round(((price - sale) / price) * 100) + '%';
+  const Sections = [
+    {
+      title: 'Shipping Info',
+      content: 'knndslknlsnslskns',
+    },
+    {
+      title: 'Support',
+      content: 'anb',
+    },
+  ];
   return (
     <ScrollView>
       <View>
@@ -71,7 +83,7 @@ const ProductDetails = ({navigation, route}) => {
           </View>
           <View style={styles.titleGroup}>
             <Text style={styles.title}>{item.name}</Text>
-            <Text>{percentSale}</Text>
+            <Text style={styles.percentSale}>{percentSale}</Text>
           </View>
           <View style={styles.priceContainer}>
             <Text style={styles.price}>{item.price}</Text>
@@ -79,6 +91,13 @@ const ProductDetails = ({navigation, route}) => {
           </View>
         </View>
       </View>
+      <View style={styles.btnAddContainer}>
+        <TouchableOpacity style={{padding: 20, borderRadius: 20}}>
+          <Text style={styles.btnAdd}>ADD TO CART</Text>
+        </TouchableOpacity>
+      </View>
+      {/* <View style={{borderBottomColor: 'black', borderBottomWidth: 1}} /> */}
+      <AccordionList sections={Sections} />
     </ScrollView>
   );
 };

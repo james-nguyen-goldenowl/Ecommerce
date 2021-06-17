@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, FlatList, TouchableOpacity,StatusBar} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+  StatusBar,
+} from 'react-native';
 import Banner from '../Components/Banner';
 import {productList} from '../fakeApi/productData';
 import ItemFlatList from '../Components/ItemFlatList';
