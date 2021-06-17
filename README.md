@@ -21,6 +21,7 @@
 ├── app.json
 ├── babel.config.js
 ├── Components
+│   ├── AccordionList.js
 │   ├── Banner.js
 │   ├── ItemFlatList.js
 │   ├── LoginForm.js
@@ -32,11 +33,10 @@
 │   └── productData.js
 ├── index.js
 ├── ios
-│   ├── Ecommerce
-│   ├── EcommerceTests
-│   ├── Ecommerce.xcodeproj
-│   └── Podfile
 ├── metro.config.js
+├── navigation
+│   ├── BottomTabNavigation.js
+│   └── HomeScreenNavigation.js
 ├── package.json
 ├── package-lock.json
 ├── public
@@ -49,7 +49,9 @@
 ├── screen
 │   ├── Home.js
 │   ├── LoginScreen.js
-│   └── SignUpScreen.js
+│   ├── ProductDetail.js
+│   ├── SignUpScreen.js
+│   └── styles
 ├── __tests__
 │   └── App-test.js
 └── yarn.lock
