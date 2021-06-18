@@ -21,7 +21,7 @@ const Item = ({item, navigation}) => {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    width: 180,
+    width: 150,
   },
   itemTilte: {
     fontSize: 15,

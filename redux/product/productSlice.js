@@ -29,7 +29,6 @@
 //       state.status = apiStatus.ERROR;
 //       console.log(action.payload);
 //       state.message = action.payload;
-//       //state.message = action.payload.error.message;
 //     },
 //   },
 // });

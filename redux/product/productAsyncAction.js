@@ -1,11 +1,6 @@
 // import {createAsyncThunk} from '@reduxjs/toolkit';
 // import getProduct from '../../fakeApi/productApi';
 // import apiStatus from '../../fakeApi/apiStatus';
-// import productSlice from './productSlice';
-// const action1= () => {
-
-// }
-// export default action1;
 // export const anyAsyncAction = createAsyncThunk(
 //   'anyAsyncAction/products',
 //   async props => {

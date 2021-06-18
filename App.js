@@ -11,7 +11,7 @@ import type {Node} from 'react';
 import {StyleSheet} from 'react-native';
 
 import {createStackNavigator} from '@react-navigation/stack';
-// import TabNavigation from './Components/Tab';
+// import Provide
 import TabNavigation from './navigation/BottomTabNavigation';
 const Stack = createStackNavigator();
 const App: () => Node = () => {
@@ -26,6 +26,7 @@ const App: () => Node = () => {
     // <HomeScreen />
     <TabNavigation />
     // <Provider store={store}>
+    //   //{' '}
     // </Provider>
   );
 };

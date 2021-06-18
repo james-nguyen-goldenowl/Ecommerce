@@ -10,12 +10,12 @@ import {
 import Banner from '../Components/Banner';
 import {productList} from '../fakeApi/productData';
 import ItemFlatList from '../Components/ItemFlatList';
+import AccordionList from '../Components/AccordionList';
 const HomeScreen = ({navigation}) => {
   const [selectedId, setSelectedId] = useState(null);
   const renderItem = ({item}) => {
     const backgroundColor = item.id === selectedId ? '#6e3b6e' : '#f9c2ff';
     const color = item.id === selectedId ? 'white' : 'black';
-
     return (
       <ItemFlatList
         item={item}
@@ -26,7 +26,6 @@ const HomeScreen = ({navigation}) => {
       />
     );
   };
-
   const [products, setProducts] = useState([]);
   useEffect(() => {
     setProducts(productList);
@@ -42,6 +41,22 @@ const HomeScreen = ({navigation}) => {
           <View>
             <Text style={styles.tile}>Sale</Text>
             <Text style={styles.subTitle}>Super summer sale</Text>
+          </View>
+          <TouchableOpacity>
+            <Text>View all</Text>
+          </TouchableOpacity>
+        </View>
+        <FlatList
+          data={products}
+          horizontal
+          renderItem={renderItem}
+          keyExtractor={item => item.id}
+          extraData={selectedId}
+        />
+        <View style={styles.titleGroup}>
+          <View>
+            <Text style={styles.tile}>New</Text>
+            <Text style={styles.subTitle}>New product</Text>
           </View>
           <TouchableOpacity>
             <Text>View all</Text>
@@ -70,7 +85,7 @@ const styles = StyleSheet.create({
   },
   content: {
     marginLeft: 10,
-    marginTop: 30,
+    marginTop: 10,
     marginRight: 20,
   },
   tile: {
