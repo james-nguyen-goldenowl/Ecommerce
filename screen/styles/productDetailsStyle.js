@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   buttonLike: {
     backgroundColor: 'white',
     borderRadius: 20,
-    borderWidth: 1,
+    // borderWidth: 1,
     width: 50,
     height: 50,
     display: 'flex',

@@ -12,6 +12,7 @@ import {Picker} from '@react-native-picker/picker';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from './styles/productDetailsStyle';
 import AccordionList from '../Components/AccordionList';
+import AverageRating from '../Components/AverageRating';
 const ProductDetails = ({navigation, route}) => {
   const {params} = route;
   const item = params.item;
@@ -35,7 +36,7 @@ const ProductDetails = ({navigation, route}) => {
   return (
     <ScrollView>
       <View>
-        <StatusBar hidden={false} backgroundColor="white" />
+        <StatusBar hidden={false} backgroundColor="red" />
         <Image
           style={styles.image}
           source={{uri: item.imageUrl}}
@@ -90,13 +91,13 @@ const ProductDetails = ({navigation, route}) => {
             <Text style={styles.sale}>{item.sale}</Text>
           </View>
         </View>
+        <AverageRating idProduct={item.id} />
       </View>
       <View style={styles.btnAddContainer}>
         <TouchableOpacity style={{padding: 20, borderRadius: 20}}>
           <Text style={styles.btnAdd}>ADD TO CART</Text>
         </TouchableOpacity>
       </View>
-      {/* <View style={{borderBottomColor: 'black', borderBottomWidth: 1}} /> */}
       <AccordionList sections={Sections} />
     </ScrollView>
   );
