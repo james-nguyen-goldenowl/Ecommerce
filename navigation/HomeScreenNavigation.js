@@ -2,6 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from '../screen/Home';
 import ProductDetails from '../screen/ProductDetail';
+import ReviewScreen from '../screen/ReviewScreen';
 const HomeStack = createStackNavigator();
 const HomeStackScreen = () => {
   return (
@@ -17,6 +18,11 @@ const HomeStackScreen = () => {
         name="Details"
         options={{headerShown: true}}
         component={ProductDetails}
+      />
+      <HomeStack.Screen
+        name="Rating"
+        options={{headerShown: true}}
+        component={ReviewScreen}
       />
     </HomeStack.Navigator>
   );

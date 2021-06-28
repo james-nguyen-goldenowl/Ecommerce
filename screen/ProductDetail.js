@@ -13,6 +13,7 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from './styles/productDetailsStyle';
 import AccordionList from '../Components/AccordionList';
 import AverageRating from '../Components/AverageRating';
+import RatingPercentageBar from '../Components/RatingPercentageBar';
 const ProductDetails = ({navigation, route}) => {
   const {params} = route;
   const item = params.item;
@@ -91,7 +92,8 @@ const ProductDetails = ({navigation, route}) => {
             <Text style={styles.sale}>{item.sale}</Text>
           </View>
         </View>
-        <AverageRating idProduct={item.id} />
+        <AverageRating idProduct={item.id} navigation={navigation} />
+        {/* <RatingPercentageBar percentage={84} /> */}
       </View>
       <View style={styles.btnAddContainer}>
         <TouchableOpacity style={{padding: 20, borderRadius: 20}}>
