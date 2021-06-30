@@ -28,7 +28,7 @@ export default function TabNavigation() {
           inactiveTintColor: 'gray',
         }}>
         <Tab.Screen name="Home" component={HomeStackScreen} />
-        <Tab.Screen name="Settings" component={HomeStackScreen} />
+        <Tab.Screen name="Shop" component={HomeStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

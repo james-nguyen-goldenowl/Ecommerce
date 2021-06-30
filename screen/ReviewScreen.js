@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import RatingPercentageBar from '../Components/RatingPercentageBar';
 import RatingStar from '../Components/RatingStar';
 import {
@@ -9,14 +9,15 @@ import {
   Dimensions,
   ScrollView,
   TouchableOpacity,
-  Alert,
-  Button,
   SafeAreaView,
+  LogBox
 } from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import RatingBar from '../Components/RatingBar';
 import CommentReview from '../Components/CommentReview';
+import ModalBoxRating from '../Components/ModalBoxRating';
 const {width, height} = Dimensions.get('screen');
+LogBox.ignoreAllLogs();
 const ReviewScreen = ({navigation, route}) => {
   const averageRating = route.params.averageRating;
   const ratings = route.params.ratings;
@@ -30,6 +31,8 @@ const ReviewScreen = ({navigation, route}) => {
   const percent3Stars = (numberRating3Stars / ratings.length) * 100;
   const percent2Stars = (numberRating2Stars / ratings.length) * 100;
   const percent1Stars = (numberRating1Stars / ratings.length) * 100;
+  const [modalOpen, setModalOpen] = useState(false);
+  const [pressButton, setPressButton] = useState(0);
   return (
     <SafeAreaView>
       <ScrollView>
@@ -139,10 +142,20 @@ const ReviewScreen = ({navigation, route}) => {
           </View>
         </View>
       </ScrollView>
-      <TouchableOpacity style={styles.addModal}>
-        <FontAwesome5Icon name={'pen'} size={15} color="white" />
+      <TouchableOpacity
+        style={styles.addModal}
+        onPress={() => {
+          setModalOpen(true);
+          setPressButton(pressButton + 1);
+          console.log(
+            '🚀 ~ file: ReviewScreen.js ~ line 148 ~ ReviewScreen ~ modalOpen',
+            modalOpen,
+          );
+        }}>
+        <FontAwesome5Icon name="pen" size={15} color="white" />
         <Text style={{marginLeft: 5, color: 'white'}}>Add Review</Text>
       </TouchableOpacity>
+      <ModalBoxRating isOpen={modalOpen} pressButton={pressButton} />
     </SafeAreaView>
   );
 };

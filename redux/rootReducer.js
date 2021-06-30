@@ -1,5 +1,5 @@
-// import productReducer from './product/product.reducer';
+// import productReducer from './product/reducer';
 // const rootReducer = {
-//   products: productReducer,
+//   product: productReducer,
 // };
 // export default rootReducer;

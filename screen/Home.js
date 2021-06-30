@@ -8,10 +8,19 @@ import {
   StatusBar,
 } from 'react-native';
 import Banner from '../Components/Banner';
-import {productList} from '../fakeApi/productData';
 import ItemFlatList from '../Components/ItemFlatList';
-import AccordionList from '../Components/AccordionList';
+import {useDispatch, useSelector} from 'react-redux';
+import GetProducts from '../redux/products/action';
 const HomeScreen = ({navigation}) => {
+  const dispatch = useDispatch();
+  const productsList = useSelector(state => state.products);
+  const [products, setProducts] = useState(productsList);
+  useEffect(() => {
+    dispatch(GetProducts());
+    setProducts(productsList);
+  }, [productsList]);
+  // setProducts(productsList);
+  console.log('🚀 ~ file: Home.js ~ line 23 ~ HomeScreen ~ test', products);
   const [selectedId, setSelectedId] = useState(null);
   const renderItem = ({item}) => {
     const backgroundColor = item.id === selectedId ? '#6e3b6e' : '#f9c2ff';
@@ -26,10 +35,6 @@ const HomeScreen = ({navigation}) => {
       />
     );
   };
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    setProducts(productList);
-  }, []);
   return (
     <View style={styles.container}>
       <StatusBar hidden />

@@ -11,7 +11,8 @@ import type {Node} from 'react';
 import {StyleSheet} from 'react-native';
 
 import {createStackNavigator} from '@react-navigation/stack';
-// import Provide
+import {Provider as StoreProvider} from 'react-redux';
+import store from './redux/store';
 import TabNavigation from './navigation/BottomTabNavigation';
 const Stack = createStackNavigator();
 const App: () => Node = () => {
@@ -24,10 +25,9 @@ const App: () => Node = () => {
     // </NavigationContainer>
     // <SignUpScreen />
     // <HomeScreen />
-    <TabNavigation />
-    // <Provider store={store}>
-    //   //{' '}
-    // </Provider>
+    <StoreProvider store={store}>
+      <TabNavigation />
+    </StoreProvider>
   );
 };
 

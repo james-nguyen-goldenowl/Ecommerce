@@ -4,12 +4,14 @@ import RatingBar from './RatingBar';
 const CommentReview = ({ratings}) => {
   const renderItem = ({item}) => <Item item={item} />;
   return (
-    <FlatList
-      data={ratings}
-      renderItem={renderItem}
-      keyExtractor={item => item.userName}
-      ex
-    />
+    <View>
+      <FlatList
+        data={ratings}
+        renderItem={renderItem}
+        keyExtractor={item => item.userName}
+        ex
+      />
+    </View>
   );
 };
 const Item = ({item}) => (
