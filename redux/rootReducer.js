@@ -1,5 +1,7 @@
-// import productReducer from './product/reducer';
-// const rootReducer = {
-//   product: productReducer,
-// };
-// export default rootReducer;
+import productsReducer from './products/Products.Reducer';
+
+const rootReducer = {
+  products: productsReducer,
+};
+
+export default rootReducer;

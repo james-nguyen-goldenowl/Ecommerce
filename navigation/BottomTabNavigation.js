@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeStackScreen from './HomeScreenNavigation';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import ShopStackScreen from './ShopScreenNavigation';
 const Tab = createBottomTabNavigator();
 
 export default function TabNavigation() {
@@ -15,8 +16,14 @@ export default function TabNavigation() {
 
             if (route.name === 'Home') {
               iconName = 'home';
-            } else if (route.name === 'Settings') {
+            } else if (route.name === 'Shop') {
               iconName = 'shopping-cart';
+            } else if (route.name === 'Bags') {
+              iconName = 'shopping-bag';
+            } else if (route.name === 'Favorites') {
+              iconName = 'heart';
+            } else if (route.name === 'Profile') {
+              iconName = 'user';
             }
 
             // You can return any component that you like here!
@@ -26,9 +33,20 @@ export default function TabNavigation() {
         tabBarOptions={{
           activeTintColor: 'tomato',
           inactiveTintColor: 'gray',
+          keyboardHidesTabBar: true,
+          // style: {
+          //   position: 'absolute',
+          // }
         }}>
         <Tab.Screen name="Home" component={HomeStackScreen} />
-        <Tab.Screen name="Shop" component={HomeStackScreen} />
+        <Tab.Screen
+          name="Shop"
+          options={{headerShown: true}}
+          component={ShopStackScreen}
+        />
+        <Tab.Screen name="Bags" component={HomeStackScreen} />
+        <Tab.Screen name="Favorites" component={HomeStackScreen} />
+        <Tab.Screen name="Profile" component={HomeStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );

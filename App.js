@@ -12,7 +12,7 @@ import {StyleSheet} from 'react-native';
 
 import {createStackNavigator} from '@react-navigation/stack';
 import {Provider as StoreProvider} from 'react-redux';
-import store from './redux/store';
+import store from './redux/configureStore';
 import TabNavigation from './navigation/BottomTabNavigation';
 const Stack = createStackNavigator();
 const App: () => Node = () => {
