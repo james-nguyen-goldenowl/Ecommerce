@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {apiStatus, productApi} from '../../fakeApi';
-import {productAsyncAction} from './Products.asyncAction';
+import {productAsyncAction} from './AsyncAction';
 const productsSlice = createSlice({
   name: 'products',
   initialState: {

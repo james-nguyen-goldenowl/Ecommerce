@@ -1,9 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from '../screen/Home/Home';
-import ProductDetails from '../screen/product/ProductDetail';
+import ProductDetails from '../screen/product/ProductDetail/ProductDetail';
 import ReviewScreen from '../screen/product/ReviewScreen';
-import ProductStackScreen from './ProductNavigation';
 const HomeStack = createStackNavigator();
 const HomeStackScreen = () => {
   return (
@@ -15,11 +14,6 @@ const HomeStackScreen = () => {
         options={{headerShown: false}}
         component={HomeScreen}
       />
-      {/* <HomeStack.Screen
-        name="Product"
-        options={{headerShown: true}}
-        component={ProductStackScreen}
-      /> */}
       <HomeStack.Screen
         name="Details"
         options={{headerShown: true}}

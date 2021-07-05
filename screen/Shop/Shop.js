@@ -12,7 +12,6 @@ import {
   Alert,
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import GetProducts from '../../redux/products/action';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import CommonButton from '../../Components/Button/CommonButton';
 const Item = ({category, navigation}) => (
@@ -34,14 +33,9 @@ const ShopScreen = ({navigation, route}) => {
   useEffect(() => {
     pressSearchButton === true ? setPressSearch(pressSearchButton) : false;
   }, [pressSearchButton]);
-  const dispatch = useDispatch();
   const productsList = useSelector(state => state.products.products);
   const [products, setProducts] = useState(productsList);
   const [searchText, setSearchText] = useState('');
-  useEffect(() => {
-    dispatch(GetProducts());
-    setProducts(productsList);
-  }, [productsList]);
   useEffect(() => {
     let filterItem = productsList.filter(
       item =>

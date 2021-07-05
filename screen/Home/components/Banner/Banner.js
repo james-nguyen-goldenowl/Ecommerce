@@ -7,7 +7,7 @@ const Banner = () => {
     <View style={styles.cardView}>
       <Image
         style={styles.image}
-        source={require('../../public/images.jpeg')}
+        source={require('../../../../public/images.jpeg')}
       />
       <View style={styles.textView}>
         <Text style={styles.imageTitle}>Street Clothes</Text>

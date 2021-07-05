@@ -1,6 +1,9 @@
 import React from 'react';
-import {TouchableOpacity, Text, StyleSheet, View} from 'react-native';
-const CommonButton = ({text, onPress}) => {
+import {TouchableOpacity, Text, StyleSheet, View, Alert} from 'react-native';
+const defaultPress = () => {
+  Alert.alert('a');
+};
+const CommonButton = ({text, onPress = defaultPress()}) => {
   return (
     <View style={styles.buttonContainer}>
       <TouchableOpacity style={styles.button} onPress={onPress}>
@@ -18,7 +21,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: '#DB3022',
     borderRadius: 25,
-    width: '90%',
+    width: '95%',
     height: 50,
     marginVertical: 20,
     display: 'flex',
@@ -28,9 +31,11 @@ const styles = StyleSheet.create({
     shadowColor: 'rgba(211, 38, 38, 0.25)',
   },
   title: {
-    fontSize: 20,
+    fontSize: 14,
     textAlign: 'center',
     color: '#FFFFFF',
+    fontFamily: 'Metropolis',
+    lineHeight: 20,
   },
 });
 export default CommonButton;

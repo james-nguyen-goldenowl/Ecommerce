@@ -6,13 +6,12 @@ import {
   FlatList,
   TouchableOpacity,
   StatusBar,
-  Image,
 } from 'react-native';
-import Banner from '../../Components/Banner/Banner';
+import Banner from './components/Banner';
 import ProductItemFlatList from '../../Components/FlatListItem/ProductItemFlatList';
 import {useDispatch, useSelector} from 'react-redux';
 import ProductList from '../../Components/Flatlist/ProductList';
-import {productAsyncAction} from '../../redux/products/Products.asyncAction';
+import {productAsyncAction} from '../../redux/products/AsyncAction';
 const HomeScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const productsList = useSelector(state => state.products.products);

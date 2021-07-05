@@ -1,4 +1,4 @@
-import reducer from './Products.Slice';
+import reducer from './Slice';
 
 const productsReducer = reducer;
 

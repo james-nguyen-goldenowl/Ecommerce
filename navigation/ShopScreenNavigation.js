@@ -37,15 +37,9 @@ const ShopStackScreen = () => {
         name="ProductCategory"
         options={{headerShown: true}}
         component={ProductCategory}
-        options={({navigation, route}) => {
-
-        }}
+        // eslint-disable-next-line react/jsx-no-duplicate-props
+        options={({navigation, route}) => {}}
       />
-      {/* <ShopStack.Screen
-        name="Rating"
-        options={{headerShown: true}}
-        component={ReviewScreen}
-      /> */}
     </ShopStack.Navigator>
   );
 };

@@ -118,9 +118,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     backgroundColor: 'white',
-    // height: '40%',
     margin: 15,
-    // alignItems: 'flex-start',
   },
   square: {
     margin: 10,
@@ -150,7 +148,6 @@ const styles = StyleSheet.create({
     height: '10%',
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: 'yellow',
     bottom: 10,
     position: 'absolute',
   },

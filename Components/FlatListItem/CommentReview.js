@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'row',
-    // backgroundColor: 'red',
     marginRight: 10,
     marginLeft: 10,
     marginTop: 10,
@@ -41,7 +40,6 @@ const styles = StyleSheet.create({
   },
   commentContainer: {
     backgroundColor: 'white',
-    // margin: 20,
     width: '100%',
     marginTop: 20,
     borderRadius: 10,

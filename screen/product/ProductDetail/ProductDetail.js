@@ -11,9 +11,9 @@ import {
 import {Picker} from '@react-native-picker/picker';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from './styles/productDetailsStyle';
-import {AccordionList} from '../../Components/AccordionList';
-import {AverageRating} from '../../Components/Rating';
-import CommonButton from '../../Components/Button/CommonButton';
+import {AccordionList} from '../../../Components/AccordionList';
+import {AverageRating} from '../../../Components/Rating';
+import CommonButton from '../../../Components/Button/CommonButton';
 const ProductDetails = ({navigation, route}) => {
   const {params} = route;
   const item = params.item;

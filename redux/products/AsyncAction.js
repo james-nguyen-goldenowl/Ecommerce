@@ -6,14 +6,9 @@ const productAsyncAction = createAsyncThunk(
   async props => {
     try {
       const response = await productApi.getProduct();
-      // console.log(
-      //   '🚀 ~ file: asyncAction.js ~ line 9 ~ async ~ response',
-      //   response.data[1],
-      // );
       return response.data;
     } catch (err) {
       const newError = {...err};
-      console.log(newError);
       const payload = {error: newError.response.data};
       return props.rejectWithValue(payload);
     }
