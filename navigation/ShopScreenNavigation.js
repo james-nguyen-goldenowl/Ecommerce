@@ -2,7 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import ShopScreen from '../screen/Shop/Shop';
 const ShopStack = createStackNavigator();
-import {View, TouchableOpacity, Alert} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import ProductCategory from '../screen/product/ProductCategory';
 const ShopStackScreen = () => {
@@ -21,6 +21,7 @@ const ShopStackScreen = () => {
           headerRight: () => {
             return (
               <TouchableOpacity
+                // eslint-disable-next-line react-native/no-inline-styles
                 style={{paddingRight: 20}}
                 onPress={() =>
                   navigation.navigate('Category', {

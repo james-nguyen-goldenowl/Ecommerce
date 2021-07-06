@@ -6,12 +6,11 @@ import {
   ScrollView,
   TouchableOpacity,
   FlatList,
-  StyleSheet,
   StatusBar,
   TextInput,
   Alert,
 } from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import CommonButton from '../../Components/Button/CommonButton';
 const Item = ({category, navigation}) => (
@@ -19,7 +18,6 @@ const Item = ({category, navigation}) => (
     onPress={() => navigation.navigate('ProductCategory', {category})}>
     <Text style={{fontSize: 20, padding: 20}}>{category}</Text>
     <View
-      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         borderBottomColor: '#9B9B9B',
         borderBottomWidth: 0.4,
@@ -42,7 +40,7 @@ const ShopScreen = ({navigation, route}) => {
         item.category.toLowerCase().indexOf(searchText.toLowerCase()) !== -1,
     );
     setProducts(filterItem);
-  }, [searchText]);
+  }, [productsList, searchText]);
   const [selectedId, setSelectedId] = useState(null);
   const renderItem = ({item}) => {
     return (
@@ -103,13 +101,4 @@ const ShopScreen = ({navigation, route}) => {
     </ScrollView>
   );
 };
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: '#DB3022',
-    borderRadius: 20,
-    width: '80%',
-    height: 40,
-    marginVertical: 20,
-  },
-});
 export default ShopScreen;

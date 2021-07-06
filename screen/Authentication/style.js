@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     flex: 6,
     flexDirection: 'column',
     padding: 10,
-    marginHorizontal: 15,
+    marginHorizontal: 10,
     alignContent: 'space-around',
   },
   title: {
@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
   input: {
     marginBottom: 10,
     backgroundColor: '#FFFFFF',
-    // borderRadius: 10,
     alignContent: 'stretch',
     height: 65,
     shadowColor: '#000',
@@ -43,11 +42,9 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   link: {
+    display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-end',
-    alignContent: 'flex-end',
-    textAlign: 'right',
-    margin: 10,
   },
 });
 export default styles;

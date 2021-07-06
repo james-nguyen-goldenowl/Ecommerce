@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeStackScreen from './HomeScreenNavigation';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -10,11 +9,12 @@ export default function TabNavigation() {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
-        tabBarIcon: ({color}) => {
+        tabBarIcon: ({color, focused}) => {
           let iconName;
 
           if (route.name === 'Home') {
             iconName = 'home';
+            console.log(focused);
           } else if (route.name === 'Shop') {
             iconName = 'shopping-cart';
           } else if (route.name === 'Bags') {

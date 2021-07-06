@@ -26,8 +26,8 @@ const AccordionList = ({sections}) => {
       </View>
     );
   };
-  const updateSections = activeSections => {
-    setActiveSections(activeSections);
+  const updateSections = activedSections => {
+    setActiveSections(activedSections);
   };
   return (
     <View style={styles.container}>

@@ -1,11 +1,9 @@
-/* eslint-disable react/react-in-jsx-scope */
 import * as React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useSelector} from 'react-redux';
 import TabNavigation from './BottomTabNavigation';
 import SignUpScreen from '../screen/Authentication/SignUp/SignUpScreen';
 import LoginScreen from '../screen/Authentication/Login/LoginScreen';
-import {NavigationContainer} from '@react-navigation/native';
 const AppStack = createStackNavigator();
 export default function AppNavigation() {
   const user = useSelector(state => state.user.user);

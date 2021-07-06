@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import RatingPercentageBar from '../../Components/Rating/RatingPercentageBar';
 // import RatingStar from '';
 import {

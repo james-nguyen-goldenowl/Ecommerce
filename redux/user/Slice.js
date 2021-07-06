@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {apiStatus, profileApi} from '../../fakeApi';
+import {apiStatus} from '../../fakeApi';
 import {loginAsyncAction} from './AsyncAction';
 const profileSlice = createSlice({
   name: 'profile',
@@ -30,7 +30,6 @@ const profileSlice = createSlice({
       state.status = apiStatus.SUCCESS;
       state.user = action.payload;
       state.message = null;
-      console.log(action.payload);
     },
     [loginAsyncAction.rejected]: (state, action) => {
       state.status = apiStatus.ERROR;

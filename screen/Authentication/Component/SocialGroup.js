@@ -23,6 +23,7 @@ const SocialGroup = () => {
   return (
     <View>
       <Text
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           textAlign: 'center',
           marginTop: 50,

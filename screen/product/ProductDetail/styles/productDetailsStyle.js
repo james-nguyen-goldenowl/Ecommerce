@@ -1,5 +1,5 @@
 import {StyleSheet, Dimensions} from 'react-native';
-const {width, height} = Dimensions.get('screen');
+const {width} = Dimensions.get('screen');
 const styles = StyleSheet.create({
   image: {
     width: width,
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
   buttonLike: {
     backgroundColor: 'white',
     borderRadius: 20,
-    // borderWidth: 1,
     width: 50,
     height: 50,
     display: 'flex',

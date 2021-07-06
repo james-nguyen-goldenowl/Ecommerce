@@ -11,7 +11,7 @@ import {
 import {Picker} from '@react-native-picker/picker';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from './styles/productDetailsStyle';
-import {AccordionList} from '../../../Components/AccordionList';
+// import {AccordionList} from '../../../Components/AccordionList';
 import {AverageRating} from '../../../Components/Rating';
 import CommonButton from '../../../Components/Button/CommonButton';
 const ProductDetails = ({navigation, route}) => {
@@ -24,16 +24,16 @@ const ProductDetails = ({navigation, route}) => {
   var sale = Number(item.sale.replace(/[^0-9.-]+/g, ''));
   var price = Number(item.price.replace(/[^0-9.-]+/g, ''));
   let percentSale = '-' + Math.round(((price - sale) / price) * 100) + '%';
-  const Sections = [
-    {
-      title: 'Shipping Info',
-      content: 'knndslknlsnslskns',
-    },
-    {
-      title: 'Support',
-      content: 'anb',
-    },
-  ];
+  // const Sections = [
+  //   {
+  //     title: 'Shipping Info',
+  //     content: 'knndslknlsnslskns',
+  //   },
+  //   {
+  //     title: 'Support',
+  //     content: 'anb',
+  //   },
+  // ];
   return (
     <ScrollView>
       <View>
@@ -72,9 +72,13 @@ const ProductDetails = ({navigation, route}) => {
                 onValueChange={(itemValue, itemIndex) => {
                   setColor(itemValue);
                 }}>
-                {itemColor.map(color => {
+                {itemColor.map(element => {
                   return (
-                    <Picker.Item label={color} value={color} key={color} />
+                    <Picker.Item
+                      label={element}
+                      value={element}
+                      key={element}
+                    />
                   );
                 })}
               </Picker>

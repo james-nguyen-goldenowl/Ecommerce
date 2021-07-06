@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {useDispatch, useSelector} from 'react-redux';
+import {View, Text, TextInput, Alert} from 'react-native';
+import {useDispatch} from 'react-redux';
 import CommonButton from '../../../Components/Button/CommonButton';
 import SocialGroup from '../Component/SocialGroup';
 import styles from '../style';
 import {loginAsyncAction} from '../../../redux/user/AsyncAction';
+import ArrowButton from '../../../Components/Button/ArrowButton/ArrowButton';
 const LoginScreen = props => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,8 +22,6 @@ const LoginScreen = props => {
     [email, password],
   );
   const dispatch = useDispatch();
-  const user = useSelector(state => state.user.user);
-  const message = useSelector(state => state.user.message);
   const navigation = props.navigation;
   return (
     <View style={styles.container}>
@@ -45,17 +43,23 @@ const LoginScreen = props => {
           value={password}
           onChangeText={pass => setPassword(pass)}
         />
-        <TouchableOpacity
-          style={styles.link}
-          onPress={() => navigation.navigate('SignUp')}>
-          <Text>Forgot your password? </Text>
-          <FontAwesome5 name={'arrow-right'} size={15} color="#DB3022" />
-        </TouchableOpacity>
+        <View style={styles.link}>
+          <ArrowButton
+            navigation={navigation}
+            text="Create a new account? "
+            destinaion="SignUp"
+          />
+          <ArrowButton
+            navigation={navigation}
+            text="Forgot your password? "
+            destinaion=""
+          />
+        </View>
         <CommonButton
           text="LOGIN"
           onPress={() => {
             email === '' || password === ''
-              ? Alert.alert('Vui lòng điền đầy đủ thông tin!')
+              ? Alert.alert('Please complete all information!')
               : dispatch(loginAsyncAction(account));
           }}
         />

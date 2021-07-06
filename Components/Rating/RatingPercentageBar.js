@@ -7,11 +7,12 @@ const RatingPercentageBar = ({percentage}) => {
       toValue: percentage,
       duration: 500,
     }).start();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [percentage]);
 
   return (
     <View
+      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         flexDirection: 'row',
       }}>

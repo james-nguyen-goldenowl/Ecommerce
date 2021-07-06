@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, FlatList, TouchableOpacity} from 'react-native';
+import {View, FlatList} from 'react-native';
 import ProductItemFlatList from '../FlatListItem/ProductItemFlatList';
 const ProductList = ({navigation, products}) => {
   const [selectedId, setSelectedId] = useState(null);

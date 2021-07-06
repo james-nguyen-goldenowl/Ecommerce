@@ -1,9 +1,7 @@
 import React from 'react';
-import {TouchableOpacity, Text, StyleSheet, View, Alert} from 'react-native';
-const defaultPress = () => {
-  Alert.alert('a');
-};
-const CommonButton = ({text, onPress = defaultPress()}) => {
+import {TouchableOpacity, Text, StyleSheet, View} from 'react-native';
+// const defaultPress = () => {};
+const CommonButton = ({text, onPress}) => {
   return (
     <View style={styles.buttonContainer}>
       <TouchableOpacity style={styles.button} onPress={onPress}>

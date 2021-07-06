@@ -19,7 +19,14 @@ const HomeScreen = ({navigation}) => {
   useEffect(() => {
     dispatch(productAsyncAction());
     setProducts(productsList);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productsList]);
+  const productsSale = productsList.filter(
+    product => product.sale !== undefined,
+  );
+  const productsNew = products.filter(
+    product => product.categoryBonus !== undefined,
+  );
   const [selectedId, setSelectedId] = useState(null);
   const renderItem = ({item}) => {
     return (
@@ -44,18 +51,14 @@ const HomeScreen = ({navigation}) => {
             <Text style={styles.tile}>Sale</Text>
             <Text style={styles.subTitle}>Super summer sale</Text>
           </View>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Shop');
+            }}>
             <Text>View all</Text>
           </TouchableOpacity>
         </View>
-        {/* <FlatList
-          data={products}
-          horizontal
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-          extraData={selectedId}
-        /> */}
-        <ProductList products={products} navigation={navigation} />
+        <ProductList products={productsSale} navigation={navigation} />
         <View style={styles.titleGroup}>
           <View>
             <Text style={styles.tile}>New</Text>
@@ -66,7 +69,7 @@ const HomeScreen = ({navigation}) => {
           </TouchableOpacity>
         </View>
         <FlatList
-          data={products}
+          data={productsNew}
           horizontal
           renderItem={renderItem}
           keyExtractor={item => item.id}

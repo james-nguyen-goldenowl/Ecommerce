@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet, Dimensions, Image} from 'react-native';
-const {width, height} = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 const Banner = () => {
   // let path = '../../public/images.jpeg';
   return (

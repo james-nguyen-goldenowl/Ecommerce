@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
 import Modal from 'react-native-modalbox';
 import {
@@ -9,14 +10,15 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-import { RatingStar } from '../Rating';
+import {RatingStar} from '../Rating';
 const ModalBoxRating = ({isOpen, pressButton}) => {
+  // eslint-disable-next-line no-unused-vars
   const [swipeToClose, setSwipeToClose] = useState(true);
   const [rating, setRating] = useState(0);
   const [isOpenModal, setIsOpenModal] = useState(null);
   useEffect(() => {
     setIsOpenModal(isOpen);
-  }, [pressButton]);
+  }, [isOpen, pressButton]);
   const [text, setText] = useState('');
   return (
     <Modal
@@ -30,7 +32,6 @@ const ModalBoxRating = ({isOpen, pressButton}) => {
       }}>
       <Text style={styles.title}>What is your rate?</Text>
       <View
-        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           display: 'flex',
           flexDirection: 'row',

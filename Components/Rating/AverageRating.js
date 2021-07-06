@@ -1,12 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ratingData from '../../fakeApi/ratingData';
 import {TouchableOpacity, StyleSheet, Text} from 'react-native';
-import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import RatingStar from './RatingStar';
 const AverageRating = ({idProduct, navigation}) => {
   const ratingProduct = ratingData.filter(item => item.idProduct === idProduct);
   let sumRating = 0;
-  ratingProduct.map(item => (sumRating = sumRating + parseInt(item.rate)));
+  ratingProduct.map(item => (sumRating = sumRating + parseInt(item.rate, 10)));
   const averageRating = Math.round(sumRating / ratingProduct.length);
   return (
     <TouchableOpacity
@@ -31,8 +30,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    marginLeft: 10,
-    marginBottom: 10,
+    // marginLeft: 10,
+    // marginBottom: 10,
+    marginTop: 10,
   },
 });
 export default AverageRating;
