@@ -5,16 +5,11 @@ import AverageRating from '../Rating/AverageRating';
 import FavoriteButton from '../Button/FavoriteButton/FavoriteButton';
 const ProductItemFlatList = ({item, navigation}) => {
   let percentSale = 0;
-  console.log(
-    '🚀 ~ file: ProductItemFlatList.js ~ line 11 ~ ProductItemFlatList ~ item.sale',
-    item.sale === undefined,
-  );
   if (item.sale !== undefined) {
     let sale = Number(item.sale.replace(/[^0-9.-]+/g, ''));
     let price = Number(item.price.replace(/[^0-9.-]+/g, ''));
     percentSale = '-' + Math.round(((price - sale) / price) * 100) + '%';
   }
-  console.log(percentSale);
   return (
     <TouchableOpacity style={styles.container}>
       <TouchableOpacity

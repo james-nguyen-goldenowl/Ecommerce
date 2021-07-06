@@ -2,7 +2,6 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity, Text} from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 const ArrowButton = ({text, navigation, destinaion}) => {
-  console.log(destinaion);
   return (
     <TouchableOpacity
       style={styles.arrowButton}
