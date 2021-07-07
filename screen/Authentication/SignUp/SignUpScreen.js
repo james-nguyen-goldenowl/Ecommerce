@@ -1,51 +1,97 @@
-import {View, Text, TouchableOpacity, TextInput} from 'react-native';
-import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import {View, Text, Alert} from 'react-native';
 import React, {useState} from 'react';
 import styles from '../style';
 import CommonButton from '../../../Components/Button/CommonButton';
 import SocialGroup from '../Component/SocialGroup';
+import {Formik, FastField} from 'formik';
+import CustomTextField from '../Component/CustomTextField';
+import ArrowButton from '../../../Components/Button/ArrowButton/ArrowButton';
 const SignUpScreen = props => {
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const navigation = props.navigation;
+  const [errorText, setErrorText] = useState({
+    userName: '',
+    email: '',
+    password: '',
+  });
+  const initValues = {
+    userName: '',
+    email: '',
+    password: '',
+  };
+  const validate = values => {
+    console.log('🚀 ~ file: SignUpScreen.js ~ line 32 ~ values', values);
+    let errors = {};
+    if (!values.email || values.email === '') {
+      errors.email = 'Required';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = "'Invalid email address'";
+    } else {
+      errors.email = '';
+    }
+    if (!values.password || values.password === '') {
+      errors.password = 'Required';
+    } else {
+      errors.password = '';
+    }
+    if (!values.userName || values.userName === '') {
+      errors.userName = 'Required';
+    } else {
+      errors.userName = '';
+    }
+    console.log('🚀 ~ file: SignUpScreen.js ~ line 55 ~ error', errors);
+    setErrorText(errors);
+    console.log('🚀 ~ file: SignUpScreen.js ~ line 57 ~ errorText', errorText);
+  };
   return (
-    <View style={styles.container}>
-      <View style={styles.up}>
-        <Text style={styles.title}>Sign Up</Text>
-      </View>
-      <View style={styles.down}>
-        <TextInput
-          style={styles.input}
-          placeholder="UserName"
-          value={userName}
-          onChangeText={name => setUserName(name)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          value={email}
-          onChangeText={mail => setEmail(mail)}
-          keyboardType="email-address"
-          textContentType="emailAddress"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          value={password}
-          onChangeText={pass => setPassword(pass)}
-          secureTextEntry={true}
-        />
-        <TouchableOpacity
-          style={styles.link}
-          onPress={() => navigation.navigate('Login')}>
-          <Text>Already have an account? </Text>
-          <FontAwesome5Icon name={'arrow-right'} size={15} color="#DB3022" />
-        </TouchableOpacity>
-        <CommonButton text="SIGN UP" />
-        <SocialGroup />
-      </View>
-    </View>
+    <Formik
+      initialValues={initValues}
+      validate={validate}
+      onSubmit={values => {
+        values.email === '' || values.password === '' || values.userName === ''
+          ? Alert.alert('Please complete all information!')
+          : console.log('Sign up', values);
+      }}>
+      {formik => {
+        const {touched, handleSubmit} = formik;
+        return (
+          <View style={styles.container}>
+            <View style={styles.up}>
+              <Text style={styles.title}>Sign Up</Text>
+            </View>
+            <View style={styles.down}>
+              <FastField
+                error={errorText.userName}
+                touch={touched.userName}
+                component={CustomTextField}
+                name="userName"
+                placeholder="UserName"
+              />
+              <FastField
+                error={errorText.email}
+                touch={touched.email}
+                component={CustomTextField}
+                name="email"
+                placeholder="Email"
+              />
+              <FastField
+                error={errorText.password}
+                touch={touched.password}
+                component={CustomTextField}
+                name="password"
+                placeholder="Password"
+              />
+              <ArrowButton
+                text="Already have an account? "
+                navigation={navigation}
+                destinaion="Login"
+              />
+              <CommonButton text="SIGN UP" onPress={handleSubmit} />
+              <SocialGroup />
+            </View>
+          </View>
+        );
+      }}
+    </Formik>
   );
 };
 export default SignUpScreen;

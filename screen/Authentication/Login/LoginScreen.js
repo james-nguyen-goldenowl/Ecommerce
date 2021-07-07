@@ -7,22 +7,9 @@ import SocialGroup from '../Component/SocialGroup';
 import styles from '../style';
 import {loginAsyncAction} from '../../../redux/user/AsyncAction';
 import ArrowButton from '../../../Components/Button/ArrowButton/ArrowButton';
-import {Formik} from 'formik';
+import {Formik, FastField} from 'formik';
+import CustomTextField from '../Component/CustomTextField';
 const LoginScreen = props => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [account, setAccount] = useState({
-    email: email,
-    password: password,
-  });
-  useEffect(
-    () =>
-      setAccount({
-        email: email,
-        password: password,
-      }),
-    [email, password],
-  );
   const [errorsText, setErrorText] = useState({});
   const dispatch = useDispatch();
   const navigation = props.navigation;
@@ -30,7 +17,6 @@ const LoginScreen = props => {
     email: '',
     password: '',
   };
-  const user = useSelector(state => state.user.user);
   const validate = values => {
     const errors = {};
     if (!values.email || values.email === '') {
@@ -42,7 +28,6 @@ const LoginScreen = props => {
       errors.password = 'Required';
     }
     setErrorText(errors);
-    console.log('🚀 ~ file: LoginScreen.js ~ line 52 ~ errors', errors.email);
   };
   return (
     <Formik
@@ -54,46 +39,26 @@ const LoginScreen = props => {
           : dispatch(loginAsyncAction(values));
       }}>
       {fomik => {
-        const {
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isSubmitting,
-        } = fomik;
+        const {touched, handleSubmit} = fomik;
         return (
           <View style={styles.container}>
             <View style={styles.up}>
               <Text style={styles.title}>Login</Text>
             </View>
             <View style={styles.down}>
-              <TextInput
-                style={styles.input}
-                keyboardType="email-address"
-                textContentType="emailAddress"
+              <FastField
+                error={errorsText.email}
+                touch={touched.email}
+                component={CustomTextField}
+                name="email"
                 placeholder="Email"
-                value={values.email}
-                onChangeText={handleChange('email')}
               />
-              {errorsText.email ? (
-                <Text
-                  // eslint-disable-next-line react-native/no-inline-styles
-                  style={{
-                    backgroundColor: 'pink',
-                    color: 'red',
-                    marginBottom: 10,
-                  }}>
-                  * {errorsText.email}
-                </Text>
-              ) : null}
-
-              <TextInput
-                style={styles.input}
+              <FastField
+                error={errorsText.password}
+                touch={touched.email}
+                component={CustomTextField}
+                name="password"
                 placeholder="Password"
-                value={values.password}
-                onChangeText={handleChange('password')}
               />
               <View style={styles.link}>
                 <ArrowButton

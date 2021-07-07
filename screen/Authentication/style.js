@@ -26,21 +26,6 @@ const styles = StyleSheet.create({
     alignContent: 'flex-end',
     fontWeight: 'bold',
   },
-  input: {
-    marginBottom: 10,
-    backgroundColor: '#FFFFFF',
-    alignContent: 'stretch',
-    height: 65,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
-  },
   link: {
     display: 'flex',
     flexDirection: 'row',
