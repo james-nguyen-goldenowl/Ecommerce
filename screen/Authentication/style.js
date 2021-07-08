@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignContent: 'center',
+    height: '100%',
     backgroundColor: '#F9F9F9',
   },
   up: {

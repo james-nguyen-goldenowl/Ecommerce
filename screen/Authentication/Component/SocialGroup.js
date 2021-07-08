@@ -12,11 +12,12 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 20,
-    width: 90,
-    height: 75,
+    borderRadius: 24,
+    width: 92,
+    height: 64,
     backgroundColor: '#fff',
-    margin: 5,
+    marginRight: 10,
+    // marginBottom: 10,
   },
 });
 const SocialGroup = () => {

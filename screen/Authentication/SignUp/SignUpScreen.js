@@ -1,4 +1,4 @@
-import {View, Text, Alert} from 'react-native';
+import {View, Text, Alert, ScrollView} from 'react-native';
 import React, {useState} from 'react';
 import styles from '../style';
 import CommonButton from '../../../Components/Button/CommonButton';
@@ -19,79 +19,82 @@ const SignUpScreen = props => {
     password: '',
   };
   const validate = values => {
-    console.log('🚀 ~ file: SignUpScreen.js ~ line 32 ~ values', values);
     let errors = {};
-    if (!values.email || values.email === '') {
+    if (!values.email || values.email.trim() === '') {
       errors.email = 'Required';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
       errors.email = "'Invalid email address'";
     } else {
       errors.email = '';
     }
-    if (!values.password || values.password === '') {
+    if (!values.password || values.password.trim() === '') {
       errors.password = 'Required';
     } else {
-      errors.password = '';
+      values.password.length < 6
+        ? (errors.password = 'Password must have min 6 characters')
+        : null;
     }
-    if (!values.userName || values.userName === '') {
+    if (!values.userName || values.userName.trim() === '') {
       errors.userName = 'Required';
     } else {
       errors.userName = '';
     }
-    console.log('🚀 ~ file: SignUpScreen.js ~ line 55 ~ error', errors);
     setErrorText(errors);
-    console.log('🚀 ~ file: SignUpScreen.js ~ line 57 ~ errorText', errorText);
   };
   return (
-    <Formik
-      initialValues={initValues}
-      validate={validate}
-      onSubmit={values => {
-        values.email === '' || values.password === '' || values.userName === ''
-          ? Alert.alert('Please complete all information!')
-          : console.log('Sign up', values);
-      }}>
-      {formik => {
-        const {touched, handleSubmit} = formik;
-        return (
-          <View style={styles.container}>
-            <View style={styles.up}>
-              <Text style={styles.title}>Sign Up</Text>
+    <ScrollView contentContainerStyle={{flex: 1, height: '100%'}}>
+      <Formik
+        initialValues={initValues}
+        validate={validate}
+        onSubmit={values => {
+          values.email === '' ||
+          values.password === '' ||
+          values.userName === ''
+            ? Alert.alert('Please complete all information!')
+            : console.log('Sign up', values);
+        }}>
+        {formik => {
+          const {touched, handleSubmit} = formik;
+          return (
+            <View style={styles.container}>
+              <View style={styles.up}>
+                <Text style={styles.title}>Sign Up</Text>
+              </View>
+              <View style={styles.down}>
+                <FastField
+                  error={errorText.userName}
+                  touch={touched.userName}
+                  component={CustomTextField}
+                  name="userName"
+                  placeholder="UserName"
+                />
+                <FastField
+                  error={errorText.email}
+                  touch={touched.email}
+                  component={CustomTextField}
+                  name="email"
+                  placeholder="Email"
+                />
+                <FastField
+                  error={errorText.password}
+                  touch={touched.password}
+                  component={CustomTextField}
+                  name="password"
+                  placeholder="Password"
+                />
+                <ArrowButton
+                  text="Already have an account? "
+                  navigation={navigation}
+                  destinaion="Login"
+                />
+                <CommonButton text="SIGN UP" onPress={handleSubmit} />
+                <SocialGroup />
+              </View>
             </View>
-            <View style={styles.down}>
-              <FastField
-                error={errorText.userName}
-                touch={touched.userName}
-                component={CustomTextField}
-                name="userName"
-                placeholder="UserName"
-              />
-              <FastField
-                error={errorText.email}
-                touch={touched.email}
-                component={CustomTextField}
-                name="email"
-                placeholder="Email"
-              />
-              <FastField
-                error={errorText.password}
-                touch={touched.password}
-                component={CustomTextField}
-                name="password"
-                placeholder="Password"
-              />
-              <ArrowButton
-                text="Already have an account? "
-                navigation={navigation}
-                destinaion="Login"
-              />
-              <CommonButton text="SIGN UP" onPress={handleSubmit} />
-              <SocialGroup />
-            </View>
-          </View>
-        );
-      }}
-    </Formik>
+          );
+        }}
+      </Formik>
+    </ScrollView>
   );
 };
 export default SignUpScreen;

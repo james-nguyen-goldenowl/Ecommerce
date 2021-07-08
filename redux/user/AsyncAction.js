@@ -3,15 +3,19 @@ import {apiStatus} from '../../fakeApi';
 import {profileApi} from '../../fakeApi';
 const loginAsyncAction = createAsyncThunk(
   'profileAsyncAction/signIn',
-  async account => {
+  async (account, {rejectWithValue}) => {
     try {
       const response = await profileApi.getProfile(account);
-      // console.log('a', response.data);
-      return response.data;
+      if (response.data) {
+        return response.data;
+      } else {
+        const payload = {response};
+        return rejectWithValue(payload);
+      }
     } catch (err) {
       const newError = {...err};
       const payload = {error: newError.response.data};
-      return account.rejectWithValue(payload);
+      return rejectWithValue(payload);
     }
   },
   {

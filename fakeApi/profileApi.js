@@ -16,10 +16,17 @@ const fakeApi = (resolve = true, dataReturn, timeDelay) => {
     setTimeout(() => {
       if (resolve) {
         return res({data: dataReturn});
+      } else {
+        return rej('Login information is incorrect');
       }
-      return rej();
     }, timeDelay);
-  });
+  })
+    .then(data => {
+      return data;
+    })
+    .catch(err => {
+      return err;
+    });
 };
 
 const getProfile = async account => {

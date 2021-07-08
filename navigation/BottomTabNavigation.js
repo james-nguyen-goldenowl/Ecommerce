@@ -11,10 +11,9 @@ export default function TabNavigation() {
       screenOptions={({route}) => ({
         tabBarIcon: ({color, focused}) => {
           let iconName;
-
           if (route.name === 'Home') {
-            iconName = 'home';
-            console.log(focused);
+            // iconName = 'home';
+            iconName = focused ? 'user' : 'home';
           } else if (route.name === 'Shop') {
             iconName = 'shopping-cart';
           } else if (route.name === 'Bags') {

@@ -9,12 +9,12 @@ const profileSlice = createSlice({
       password: '',
     },
     status: null,
-    message: null,
+    message: '',
   },
   reducers: {
     clearState: state => {
       state.status = null;
-      state.message = null;
+      state.message = '';
       state.user = {
         email: '',
         password: '',
@@ -24,16 +24,17 @@ const profileSlice = createSlice({
   extraReducers: {
     [loginAsyncAction.pending]: state => {
       state.status = apiStatus.PENDING;
-      state.message = null;
+      state.message = '';
     },
     [loginAsyncAction.fulfilled]: (state, action) => {
       state.status = apiStatus.SUCCESS;
       state.user = action.payload;
-      state.message = null;
+      state.message = '';
     },
     [loginAsyncAction.rejected]: (state, action) => {
       state.status = apiStatus.ERROR;
       state.message = action.payload;
+      console.log('🚀 ~ file: Slice.js ~ line 40 ~ action', state.message);
     },
   },
 });
