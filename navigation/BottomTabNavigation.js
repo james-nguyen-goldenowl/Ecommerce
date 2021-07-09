@@ -1,37 +1,49 @@
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeStackScreen from './HomeScreenNavigation';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import ShopStackScreen from './ShopScreenNavigation';
 import ProfileScreen from '../screen/Profile/Profile';
+import {Image, StyleSheet} from 'react-native';
 const Tab = createBottomTabNavigator();
 export default function TabNavigation() {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarIcon: ({color, focused}) => {
-          let iconName;
+          let iconSource;
           if (route.name === 'Home') {
-            // iconName = 'home';
-            iconName = focused ? 'user' : 'home';
+            iconSource = focused
+              ? require('../public/home-focused.png')
+              : require('../public/home.png');
           } else if (route.name === 'Shop') {
-            iconName = 'shopping-cart';
+            iconSource = focused
+              ? require('../public/cart-focused.png')
+              : require('../public/cart.png');
           } else if (route.name === 'Bags') {
-            iconName = 'shopping-bag';
+            iconSource = focused
+              ? require('../public/bag-focused.png')
+              : require('../public/bag.png');
           } else if (route.name === 'Favorites') {
-            iconName = 'heart';
+            iconSource = focused
+              ? require('../public/heart-focused.png')
+              : require('../public/heart.png');
           } else if (route.name === 'Profile') {
-            iconName = 'user';
+            iconSource = focused
+              ? require('../public/user-focused.png')
+              : require('../public/user.png');
           }
 
           // You can return any component that you like here!
-          return <FontAwesome5 name={iconName} size={25} color={color} />;
+          // return <FontAwesome5 name={iconName} size={25} color={color} />;
+          return <Image source={iconSource} style={styles.image} />;
         },
       })}
       tabBarOptions={{
-        activeTintColor: 'tomato',
+        activeTintColor: '#DB3022',
         inactiveTintColor: 'gray',
         keyboardHidesTabBar: true,
+        // style: {height: 63, flex: 1},
+        style: {paddingVertical: 10},
       }}>
       <Tab.Screen name="Home" component={HomeStackScreen} />
       <Tab.Screen
@@ -45,3 +57,9 @@ export default function TabNavigation() {
     </Tab.Navigator>
   );
 }
+const styles = StyleSheet.create({
+  image: {
+    width: 28.24,
+    height: 27,
+  },
+});

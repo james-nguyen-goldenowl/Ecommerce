@@ -30,9 +30,13 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    // marginLeft: 10,
-    // marginBottom: 10,
     marginTop: 10,
+    alignItems: 'center',
+  },
+  totalRating: {
+    lineHeight: 8,
+    fontSize: 10,
+    fontFamily: 'Metropolis',
   },
 });
 export default AverageRating;

@@ -1,7 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import RatingPercentageBar from '../../Components/Rating/RatingPercentageBar';
-// import RatingStar from '';
+import RatingPercentageBar from '../../../Components/Rating/RatingPercentageBar';
 import {
   View,
   Text,
@@ -13,9 +12,9 @@ import {
   LogBox,
 } from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-import RatingBar from '../../Components/Rating/RatingBar';
-import CommentReview from '../../Components/FlatListItem/CommentReview';
-import ModalBoxRating from '../../Components/ModalBoxRating/ModalBoxRating';
+import RatingBar from '../../../Components/Rating/RatingBar';
+import CommentReview from '../../../Components/Flatlist/FlatListItem/CommentReview';
+import ModalBoxRating from './Component/ModalBoxRating';
 const {width, height} = Dimensions.get('window');
 LogBox.ignoreAllLogs();
 const ReviewScreen = ({navigation, route}) => {

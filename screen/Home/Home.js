@@ -8,10 +8,11 @@ import {
   StatusBar,
 } from 'react-native';
 import Banner from './components/Banner';
-import ProductItemFlatList from '../../Components/FlatListItem/ProductItemFlatList';
+import ProductItemFlatList from '../../Components/Flatlist/FlatListItem/ProductItemFlatList';
 import {useDispatch, useSelector} from 'react-redux';
 import ProductList from '../../Components/Flatlist/ProductList';
 import {productAsyncAction} from '../../redux/products/AsyncAction';
+import {ScrollView} from 'react-native';
 const HomeScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const productsList = useSelector(state => state.products.products);
@@ -27,56 +28,40 @@ const HomeScreen = ({navigation}) => {
   const productsNew = products.filter(
     product => product.categoryBonus !== undefined,
   );
-  const [selectedId, setSelectedId] = useState(null);
-  const renderItem = ({item}) => {
-    return (
-      <View>
-        <ProductItemFlatList
-          item={item}
-          onPress={() => setSelectedId(item.id)}
-          navigation={{navigation}}
-        />
-      </View>
-    );
-  };
   return (
-    <View style={styles.container}>
-      <StatusBar hidden />
-      <View>
-        <Banner />
-      </View>
-      <View style={styles.content}>
-        <View style={styles.titleGroup}>
-          <View>
-            <Text style={styles.tile}>Sale</Text>
-            <Text style={styles.subTitle}>Super summer sale</Text>
-          </View>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('Shop');
-            }}>
-            <Text>View all</Text>
-          </TouchableOpacity>
+    <ScrollView style={{flex: 1}}>
+      <View style={styles.container}>
+        <StatusBar hidden />
+        <View>
+          <Banner />
         </View>
-        <ProductList products={productsSale} navigation={navigation} />
-        <View style={styles.titleGroup}>
-          <View>
-            <Text style={styles.tile}>New</Text>
-            <Text style={styles.subTitle}>New product</Text>
+        <View style={styles.content}>
+          <View style={styles.titleGroup}>
+            <View>
+              <Text style={styles.tile}>Sale</Text>
+              <Text style={styles.subTitle}>Super summer sale</Text>
+            </View>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Shop');
+              }}>
+              <Text>View all</Text>
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity>
-            <Text>View all</Text>
-          </TouchableOpacity>
+          <ProductList products={productsSale} navigation={navigation} />
+          <View style={styles.titleGroup}>
+            <View>
+              <Text style={styles.tile}>New</Text>
+              <Text style={styles.subTitle}>New product</Text>
+            </View>
+            <TouchableOpacity>
+              <Text>View all</Text>
+            </TouchableOpacity>
+          </View>
+          <ProductList products={productsNew} navigation={navigation} />
         </View>
-        <FlatList
-          data={productsNew}
-          horizontal
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-          extraData={selectedId}
-        />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({

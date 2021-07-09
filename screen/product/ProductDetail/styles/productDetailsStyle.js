@@ -42,25 +42,19 @@ const styles = StyleSheet.create({
   titleGroup: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    alignContent: 'center',
+    // alignC?ontent: 'center',
+    justifyContent: 'flex-start',
   },
   percentSale: {
-    backgroundColor: 'red',
-    color: 'white',
-    marginRight: 50,
-    width: 50,
-    paddingLeft: 5,
-    height: 25,
-    borderRadius: 15,
-    textAlign: 'center',
-    fontSize: 15,
+
   },
   priceContainer: {
     display: 'flex',
     flexDirection: 'row',
     padding: 5,
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
   price: {
     color: 'gray',

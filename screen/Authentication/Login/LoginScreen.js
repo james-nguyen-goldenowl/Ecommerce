@@ -75,16 +75,18 @@ const LoginScreen = props => {
                 <View style={styles.link}>
                   <ArrowButton
                     navigation={navigation}
-                    text="Create a new account? "
-                    destinaion="SignUp"
-                  />
-                  <ArrowButton
-                    navigation={navigation}
                     text="Forgot your password? "
                     destinaion=""
                   />
                 </View>
                 <CommonButton text="LOGIN" onPress={handleSubmit} />
+                <View style={styles.linkSignUp}>
+                  <ArrowButton
+                    navigation={navigation}
+                    text="Create a new account? "
+                    destinaion="SignUp"
+                  />
+                </View>
                 <SocialGroup />
               </View>
             </View>

@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-import {RatingStar} from '../Rating';
+import {RatingStar} from '../../../../../Components/Rating';
 const ModalBoxRating = ({isOpen, pressButton}) => {
   // eslint-disable-next-line no-unused-vars
   const [swipeToClose, setSwipeToClose] = useState(true);
