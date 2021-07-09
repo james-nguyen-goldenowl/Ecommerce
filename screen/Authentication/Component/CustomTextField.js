@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View, Text, TextInput, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {FloatingLabelInput} from 'react-native-floating-label-input';
 const CustomTextField = props => {
   const {field, form, error} = props;
@@ -11,7 +11,7 @@ const CustomTextField = props => {
     <View>
       <View style={styles.inputContainer}>
         <FloatingLabelInput
-          label={name}
+          label={props.placeholder}
           isPassword={secureText}
           togglePassword={!secureText}
           value={value}

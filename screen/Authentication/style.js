@@ -23,14 +23,22 @@ const styles = StyleSheet.create({
     alignContent: 'space-around',
   },
   title: {
-    fontSize: 40,
+    fontSize: 34,
     alignContent: 'flex-end',
     fontWeight: 'bold',
+    color: '#222222',
+    fontFamily: 'Metropolis',
   },
   link: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-end',
+  },
+  linkSignUp: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 20,
   },
 });
 export default styles;

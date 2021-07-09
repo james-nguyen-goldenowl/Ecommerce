@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, View, StyleSheet, Image, FlatList} from 'react-native';
-import RatingBar from '../Rating/RatingBar';
+import RatingBar from '../../Rating/RatingBar';
 const CommentReview = ({ratings}) => {
   const renderItem = ({item}) => <Item item={item} />;
   return (
@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
     borderRadius: 80,
     borderColor: 'yellow',
     resizeMode: 'cover',
-    // backgroundColor: 'red',
   },
   imageAvatar: {
     height: 45,

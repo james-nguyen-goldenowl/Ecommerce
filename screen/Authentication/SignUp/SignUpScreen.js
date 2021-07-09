@@ -1,4 +1,5 @@
-import {View, Text, Alert, ScrollView} from 'react-native';
+/* eslint-disable react-native/no-inline-styles */
+import {View, Text, Alert, ScrollView, Dimensions} from 'react-native';
 import React, {useState} from 'react';
 import styles from '../style';
 import CommonButton from '../../../Components/Button/CommonButton';
@@ -6,6 +7,7 @@ import SocialGroup from '../Component/SocialGroup';
 import {Formik, FastField} from 'formik';
 import CustomTextField from '../Component/CustomTextField';
 import ArrowButton from '../../../Components/Button/ArrowButton/ArrowButton';
+const height = Dimensions.get('screen').height;
 const SignUpScreen = props => {
   const navigation = props.navigation;
   const [errorText, setErrorText] = useState({
@@ -23,7 +25,7 @@ const SignUpScreen = props => {
     if (!values.email || values.email.trim() === '') {
       errors.email = 'Required';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-      errors.email = "'Invalid email address'";
+      errors.email = 'Invalid email address';
     } else {
       errors.email = '';
     }
@@ -42,7 +44,9 @@ const SignUpScreen = props => {
     setErrorText(errors);
   };
   return (
-    <ScrollView contentContainerStyle={{flex: 1, height: '100%'}}>
+    <ScrollView
+      style={{flex: 1, height: height}}
+      contentContainerStyle={{flex: 1}}>
       <Formik
         initialValues={initValues}
         validate={validate}

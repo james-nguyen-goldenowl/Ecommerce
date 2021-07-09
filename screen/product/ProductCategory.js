@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {ScrollView, TouchableOpacity, FlatList, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
-import ItemFlatList from '../../Components/FlatListItem/ProductItemFlatList';
+import ItemFlatList from '../../Components/Flatlist/FlatListItem/ProductItemFlatList';
 const ProductCategory = ({navigation, route}) => {
   const [selectedId, setSelectedId] = useState(null);
   const products = useSelector(state => state.products.products);

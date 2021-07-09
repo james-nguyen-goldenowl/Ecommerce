@@ -1,19 +1,13 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StatusBar,
-  TouchableOpacity,
-  ScrollView,
-  Alert,
-} from 'react-native';
+import {View, Text, Image, StatusBar, ScrollView, Alert} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
-import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import styles from './styles/productDetailsStyle';
 // import {AccordionList} from '../../../Components/AccordionList';
 import {AverageRating} from '../../../Components/Rating';
 import CommonButton from '../../../Components/Button/CommonButton';
+import SaleText from '../../../Components/CustomText/SaleText';
+import FavoriteButton from '../../../Components/Button/FavoriteButton/FavoriteButton';
 const ProductDetails = ({navigation, route}) => {
   const {params} = route;
   const item = params.item;
@@ -21,9 +15,6 @@ const ProductDetails = ({navigation, route}) => {
   const itemColor = item.color;
   const [selectedSize, setSelectedSize] = useState(null);
   const [color, setColor] = useState(null);
-  var sale = Number(item.sale.replace(/[^0-9.-]+/g, ''));
-  var price = Number(item.price.replace(/[^0-9.-]+/g, ''));
-  let percentSale = '-' + Math.round(((price - sale) / price) * 100) + '%';
   // const Sections = [
   //   {
   //     title: 'Shipping Info',
@@ -52,7 +43,6 @@ const ProductDetails = ({navigation, route}) => {
                 onValueChange={(itemValue, itemIndex) => {
                   setSelectedSize(itemValue);
                 }}>
-                {/* <Picker.Item label={item.size} value={item.size} /> */}
                 {itemSize.map(size => {
                   return (
                     <Picker.Item
@@ -83,26 +73,29 @@ const ProductDetails = ({navigation, route}) => {
                 })}
               </Picker>
             </View>
-            <TouchableOpacity style={styles.buttonLike}>
-              <FontAwesome5Icon name={'heart'} size={15} />
-            </TouchableOpacity>
+            <FavoriteButton />
           </View>
           <View style={styles.titleGroup}>
             <Text style={styles.title}>{item.name}</Text>
-            <Text style={styles.percentSale}>{percentSale}</Text>
+            <SaleText item={item} />
+            {/* <View style={styles.percentSale}>
+              <Text />
+            </View> */}
           </View>
           <View style={styles.priceContainer}>
             <Text style={styles.price}>{item.price}</Text>
             <Text style={styles.sale}>{item.sale}</Text>
           </View>
         </View>
-        <AverageRating idProduct={item.id} navigation={navigation} />
+        <View style={{marginLeft: 10}}>
+          <AverageRating idProduct={item.id} navigation={navigation} />
+        </View>
       </View>
       <View style={styles.btnAddContainer}>
         <CommonButton
           text="ADD TO CART"
           onPress={() => {
-            Alert.alert('bfjbkl');
+            Alert.alert('barbel');
           }}
         />
       </View>
