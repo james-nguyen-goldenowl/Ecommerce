@@ -1,0 +1,76 @@
+import {StyleSheet} from 'react-native';
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignContent: 'center',
+    height: '100%',
+    backgroundColor: '#F9F9F9',
+    fontFamily: 'Metropolis',
+  },
+  up: {
+    flex: 2,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    padding: 20,
+    marginHorizontal: 0,
+  },
+  down: {
+    flex: 6,
+    flexDirection: 'column',
+    padding: 10,
+    marginHorizontal: 10,
+    alignContent: 'space-around',
+  },
+  title: {
+    fontSize: 34,
+    alignContent: 'flex-end',
+    fontWeight: 'bold',
+    color: '#222222',
+    fontFamily: 'Metropolis',
+  },
+  infoGroupContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 101,
+    width: '100%',
+  },
+  avatarContainer: {
+    flex: 3,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 69,
+    height: 101,
+  },
+  info: {
+    flex: 7,
+    paddingLeft: 10,
+    height: 101,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+  imageAvatar: {
+    width: 69,
+    height: 69,
+    borderRadius: 40,
+  },
+  name: {
+    fontSize: 18,
+    alignContent: 'flex-end',
+    fontWeight: 'bold',
+    color: '#222222',
+  },
+  infoBonus: {
+    fontSize: 14,
+    lineHeight: 20,
+    color: '#9B9B9B',
+    marginTop: 9,
+  },
+});
+export default styles;

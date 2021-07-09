@@ -8,7 +8,6 @@ import {
   FlatList,
   StatusBar,
   TextInput,
-  Alert,
 } from 'react-native';
 import {useSelector} from 'react-redux';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
@@ -88,7 +87,7 @@ const ShopScreen = ({navigation, route}) => {
       <CommonButton
         text="VIEW ALL ITEMS"
         onPress={() => {
-          Alert.alert('a');
+          setSearchText('');
         }}
       />
       <Text style={{paddingLeft: 10}}>Choose category</Text>

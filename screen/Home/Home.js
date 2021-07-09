@@ -53,7 +53,10 @@ const HomeScreen = ({navigation}) => {
               <Text style={styles.tile}>New</Text>
               <Text style={styles.subTitle}>New product</Text>
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Shop');
+              }}>
               <Text>View all</Text>
             </TouchableOpacity>
           </View>
