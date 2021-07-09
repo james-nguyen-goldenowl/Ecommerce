@@ -23,7 +23,6 @@ const CustomTextField = props => {
           }}
           labelStyles={{lineHeight: 20, fontFamily: 'Metropolis'}}
           darkTheme={secureText}
-          maxLength={24}
         />
         {error === '' || error === undefined ? (
           <View />
