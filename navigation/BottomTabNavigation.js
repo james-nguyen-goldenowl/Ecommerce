@@ -2,7 +2,7 @@ import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeStackScreen from './HomeScreenNavigation';
 import ShopStackScreen from './ShopScreenNavigation';
-// import FavoriteScreen from '../screen/Favorite/FavoriteScreen';
+import FavoriteScreen from '../screen/Favorite/FavoriteScreen';
 import ProfileStackScreen from './ProfileScreenNavigation';
 import {Image, StyleSheet} from 'react-native';
 const Tab = createBottomTabNavigator();
@@ -52,7 +52,7 @@ export default function TabNavigation() {
         component={ShopStackScreen}
       />
       <Tab.Screen name="Bags" component={HomeStackScreen} />
-      <Tab.Screen name="Favorites" component={HomeStackScreen} />
+      <Tab.Screen name="Favorites" component={FavoriteScreen} />
       <Tab.Screen name="Profile" component={ProfileStackScreen} />
     </Tab.Navigator>
   );

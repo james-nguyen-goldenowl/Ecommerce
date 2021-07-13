@@ -8,21 +8,21 @@ const FavoriteButton = ({item}) => {
   const [imageSource, setSource] = useState(
     require('../../../public/heart.png'),
   );
-  // const favorite = useSelector(state => state.favorite.favorite);
-  // useEffect(() => {
-  //   favorite.includes(item)
-  //     ? setSource(require('../../../public/heart-focused.png'))
-  //     : setSource(require('../../../public/heart.png'));
-  // }, [favorite, item]);
+  const favorite = useSelector(state => state.favorite.favorite);
+  useEffect(() => {
+    favorite.includes(item)
+      ? setSource(require('../../../public/heart-focused.png'))
+      : setSource(require('../../../public/heart.png'));
+  }, [favorite, item]);
   const [numPress, setNumPress] = useState(0);
   return (
     <TouchableOpacity
       style={styles.buttonLike}
       onPress={() => {
         setNumPress(numPress + 1);
-        // favorite.includes(item)
-        //   ? dispatch(removeFavorite(item))
-        //   : dispatch(addFavorite(item));
+        favorite.includes(item)
+          ? dispatch(removeFavorite(item))
+          : dispatch(addFavorite(item));
       }}>
       <Image style={{width: 16, height: 16}} source={imageSource} />
     </TouchableOpacity>
