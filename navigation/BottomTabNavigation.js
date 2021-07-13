@@ -2,7 +2,7 @@ import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeStackScreen from './HomeScreenNavigation';
 import ShopStackScreen from './ShopScreenNavigation';
-import ProfileScreen from '../screen/Profile/Profile';
+// import FavoriteScreen from '../screen/Favorite/FavoriteScreen';
 import ProfileStackScreen from './ProfileScreenNavigation';
 import {Image, StyleSheet} from 'react-native';
 const Tab = createBottomTabNavigator();

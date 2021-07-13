@@ -2,7 +2,7 @@
 import {View, Text, Alert, ScrollView, Dimensions} from 'react-native';
 import React, {useState} from 'react';
 import styles from '../style';
-import CommonButton from '../../../Components/Button/CommonButton';
+import CommonButton from '../../../Components/Button/CommonButton/CommonButton';
 import SocialGroup from '../Component/SocialGroup';
 import {Formik, FastField} from 'formik';
 import CustomTextField from '../Component/CustomTextField';

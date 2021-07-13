@@ -1,6 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, Text, StyleSheet, View} from 'react-native';
-// const defaultPress = () => {};
+import Colors from '../../../utils/Color';
+const {RED_BUTTON, WHITE, SHADOW_BUTTON} = Colors;
 const CommonButton = ({text, onPress}) => {
   return (
     <View style={styles.buttonContainer}>
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    backgroundColor: '#DB3022',
+    backgroundColor: RED_BUTTON,
     borderRadius: 25,
     width: '95%',
     height: 50,
@@ -26,12 +27,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: 'rgba(211, 38, 38, 0.25)',
+    shadowColor: SHADOW_BUTTON,
   },
   title: {
     fontSize: 14,
     textAlign: 'center',
-    color: '#FFFFFF',
+    color: WHITE,
     fontFamily: 'Metropolis',
     lineHeight: 20,
   },

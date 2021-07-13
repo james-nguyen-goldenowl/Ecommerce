@@ -11,14 +11,25 @@ import {
 } from 'react-native';
 import {useSelector} from 'react-redux';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-import CommonButton from '../../Components/Button/CommonButton';
+import CommonButton from '../../Components/Button/CommonButton/CommonButton';
+import Title from '../../utils/Title';
+import Colors from '../../utils/Color';
+import ProductCategory from '../product/ProductCategory/ProductCategory';
 const Item = ({category, navigation}) => (
   <TouchableOpacity
     onPress={() => navigation.navigate('ProductCategory', {category})}>
-    <Text style={{fontSize: 20, padding: 20}}>{category}</Text>
+    <Text
+      style={{
+        fontSize: 16,
+        paddingLeft: 40,
+        paddingVertical: 17,
+        color: Colors.BLACK,
+      }}>
+      {category}
+    </Text>
     <View
       style={{
-        borderBottomColor: '#9B9B9B',
+        borderBottomColor: Colors.GRAY,
         borderBottomWidth: 0.4,
       }}
     />
@@ -31,27 +42,32 @@ const ShopScreen = ({navigation, route}) => {
     pressSearchButton === true ? setPressSearch(pressSearchButton) : false;
   }, [pressSearchButton]);
   const productsList = useSelector(state => state.products.products);
-  const [products, setProducts] = useState(productsList);
+  const [categoryList, setCategorys] = useState(
+    Array.from(new Set(productsList.map(item => item.category))),
+  );
   const [searchText, setSearchText] = useState('');
   useEffect(() => {
-    let filterItem = productsList.filter(
-      item =>
-        item.category.toLowerCase().indexOf(searchText.toLowerCase()) !== -1,
+    let categorys = Array.from(
+      new Set(productsList.map(item => item.category)),
     );
-    setProducts(filterItem);
+    let filterItem = categorys.filter(
+      item => item.toLowerCase().indexOf(searchText.toLowerCase()) !== -1,
+    );
+    console.log('filter', filterItem);
+    setCategorys(filterItem);
   }, [productsList, searchText]);
   const [selectedId, setSelectedId] = useState(null);
   const renderItem = ({item}) => {
     return (
       <Item
-        category={item.category}
+        category={item}
         navigation={navigation}
         onPress={() => setSelectedId(item.id)}
       />
     );
   };
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={{backgroundColor: Colors.BACKGROUND}}>
       <StatusBar hidden={false} backgroundColor="red" />
       {pressSearch === true && (
         <View style={{flex: 1, paddingTop: 20}}>
@@ -85,14 +101,16 @@ const ShopScreen = ({navigation, route}) => {
         </View>
       )}
       <CommonButton
-        text="VIEW ALL ITEMS"
+        text={Title.VIEW_ALL}
         onPress={() => {
           setSearchText('');
         }}
       />
-      <Text style={{paddingLeft: 10}}>Choose category</Text>
+      <Text style={{paddingTop: 10, paddingLeft: 20, color: Colors.GRAY}}>
+        Choose category
+      </Text>
       <FlatList
-        data={products}
+        data={categoryList}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         extraData={selectedId}

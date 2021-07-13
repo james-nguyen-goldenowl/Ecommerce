@@ -6,7 +6,7 @@ const productList = [
     imageUrl: require('../public/1.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Ice Cream - Fudge Bars',
+    category: 'T-shirt',
     categoryBonus: 'New',
   },
   {
@@ -17,7 +17,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet'],
     size: ['S', 'M', 'L'],
     sale: '$22.56',
-    category: 'Tea Leaves - Oolong',
+    category: 'Tops',
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$23.98',
-    category: 'Ice Cream - Fudge Bars',
+    category: 'Tops',
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$32.72',
-    category: 'Rice - Sushi',
+    category: 'Tops',
   },
   {
     id: 6,
@@ -56,7 +56,7 @@ const productList = [
     imageUrl: require('../public/6.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Tequila - Sauza Silver',
+    category: 'Tops',
     categoryBonus: 'New',
   },
   {
@@ -76,7 +76,7 @@ const productList = [
     imageUrl: require('../public/8.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Oil - Food, Lacquer Spray',
+    category: 'Tops',
     categoryBonus: 'New',
   },
   {
@@ -97,7 +97,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     categoryBonus: 'New',
-    category: 'Demo',
+    category: 'Tops',
   },
   {
     id: 11,
@@ -137,7 +137,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$20.18',
-    category: 'Vodka - Lemon, Absolut',
+    category: 'Tops',
   },
   {
     id: 15,
@@ -147,7 +147,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     categoryBonus: 'New',
-    category: 'Lemonade - Kiwi, 591 Ml',
+    category: 'Tops',
   },
   {
     id: 16,

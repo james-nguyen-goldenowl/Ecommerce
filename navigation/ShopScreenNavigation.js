@@ -2,9 +2,9 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import ShopScreen from '../screen/Shop/Shop';
 const ShopStack = createStackNavigator();
-import {TouchableOpacity} from 'react-native';
+import {TouchableOpacity, Image} from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-import ProductCategory from '../screen/product/ProductCategory';
+import ProductCategory from '../screen/product/ProductCategory/ProductCategory';
 const ShopStackScreen = () => {
   return (
     <ShopStack.Navigator
@@ -36,10 +36,25 @@ const ShopStackScreen = () => {
       />
       <ShopStack.Screen
         name="ProductCategory"
-        options={{headerShown: true}}
         component={ProductCategory}
         // eslint-disable-next-line react/jsx-no-duplicate-props
-        options={({navigation, route}) => {}}
+        options={({navigation, route}) => ({
+          headerTitle: '',
+          headerRight: () => {
+            return (
+              <TouchableOpacity
+                // eslint-disable-next-line react-native/no-inline-styles
+                style={{paddingRight: 20}}
+                onPress={() =>
+                  navigation.navigate('ProductCategory', {
+                    pressSearchButton: true,
+                  })
+                }>
+                <FontAwesome5Icon name="search" size={20} />
+              </TouchableOpacity>
+            );
+          },
+        })}
       />
     </ShopStack.Navigator>
   );

@@ -1,10 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {View, Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import AverageRating from '../../Rating/AverageRating';
-import FavoriteButton from '../../Button/FavoriteButton/FavoriteButton';
-import SaleText from '../../CustomText/SaleText';
-const ProductItemFlatList = ({item, navigation}) => {
+import AverageRating from '../../../Rating/AverageRating';
+import FavoriteButton from '../../../Button/FavoriteButton/FavoriteButton';
+import SaleText from '../../../CustomText/SaleText';
+const ItemProductVertical = ({item, navigation}) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -28,9 +28,9 @@ const ProductItemFlatList = ({item, navigation}) => {
         </Text>
         <Text style={styles.price}>{item.price}</Text>
       </TouchableOpacity>
-      <View style={styles.buttonLike}>
-        <FavoriteButton />
-      </View>
+      <TouchableOpacity style={styles.buttonLike}>
+        <FavoriteButton item={item} />
+      </TouchableOpacity>
       <View style={{position: 'absolute', top: 15, left: 26}}>
         <SaleText item={item} />
       </View>
@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
     height: 276,
     marginRight: 0,
     fontFamily: 'Metropolis',
-    // backgroundColor: 'black',
   },
   newTextView: {
     backgroundColor: '#222222',
@@ -81,6 +80,7 @@ const styles = StyleSheet.create({
   image: {
     height: 177.3,
     width: 147,
+    borderRadius: 10,
   },
   buttonLike: {
     right: 11,
@@ -95,4 +95,4 @@ const styles = StyleSheet.create({
     left: 26,
   },
 });
-export default ProductItemFlatList;
+export default ItemProductVertical;

@@ -2,6 +2,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {FloatingLabelInput} from 'react-native-floating-label-input';
+import Colors from '../../../utils/Color';
 const CustomTextField = props => {
   const {field, form, error} = props;
   const {name, value} = field;
@@ -23,6 +24,7 @@ const CustomTextField = props => {
           }}
           labelStyles={{lineHeight: 20, fontFamily: 'Metropolis'}}
           darkTheme={secureText}
+          style={{backgroundColor: Colors.WHITE}}
         />
         {error === '' || error === undefined ? (
           <View />

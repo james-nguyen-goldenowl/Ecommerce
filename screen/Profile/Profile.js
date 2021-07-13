@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Text, Image} from 'react-native';
+import {View, StyleSheet, Text, Image, StatusBar} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {useDispatch, useSelector} from 'react-redux';
 import {clearState} from '../../redux/user/Slice';
@@ -11,6 +11,7 @@ const ProfileScreen = () => {
   const userName = `${user.firstName} ${user.lastName}`;
   return (
     <ScrollView>
+      <StatusBar hidden={false} backgroundColor="red" />
       <View style={styles.container}>
         <View style={styles.up}>
           <Text style={styles.title}>My Profile</Text>

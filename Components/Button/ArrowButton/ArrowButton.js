@@ -1,13 +1,15 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, Text} from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+import Colors from '../../../utils/Color';
 const ArrowButton = ({text, navigation, destinaion}) => {
+  const RED = Colors.RED_BUTTON;
   return (
     <TouchableOpacity
       style={styles.arrowButton}
       onPress={() => navigation.navigate(destinaion)}>
       <Text>{text}</Text>
-      <FontAwesome5Icon name={'arrow-right'} size={15} color="#DB3022" />
+      <FontAwesome5Icon name={'arrow-right'} size={15} color={RED} />
     </TouchableOpacity>
   );
 };

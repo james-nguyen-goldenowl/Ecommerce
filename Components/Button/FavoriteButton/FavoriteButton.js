@@ -1,19 +1,28 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {TouchableOpacity, StyleSheet, Image} from 'react-native';
-const FavoriteButton = () => {
+import {useDispatch, useSelector} from 'react-redux';
+import {addFavorite, removeFavorite} from '../../../redux/favorite/Slice';
+const FavoriteButton = ({item}) => {
+  const dispatch = useDispatch();
   const [imageSource, setSource] = useState(
     require('../../../public/heart.png'),
   );
+  // const favorite = useSelector(state => state.favorite.favorite);
+  // useEffect(() => {
+  //   favorite.includes(item)
+  //     ? setSource(require('../../../public/heart-focused.png'))
+  //     : setSource(require('../../../public/heart.png'));
+  // }, [favorite, item]);
   const [numPress, setNumPress] = useState(0);
   return (
     <TouchableOpacity
       style={styles.buttonLike}
       onPress={() => {
         setNumPress(numPress + 1);
-        numPress % 2 === 0
-          ? setSource(require('../../../public/heart-focused.png'))
-          : setSource(require('../../../public/heart.png'));
+        // favorite.includes(item)
+        //   ? dispatch(removeFavorite(item))
+        //   : dispatch(addFavorite(item));
       }}>
       <Image style={{width: 16, height: 16}} source={imageSource} />
     </TouchableOpacity>

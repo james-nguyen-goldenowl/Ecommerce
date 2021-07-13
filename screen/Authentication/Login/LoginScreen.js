@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, ScrollView, Alert} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import CommonButton from '../../../Components/Button/CommonButton';
+import CommonButton from '../../../Components/Button/CommonButton/CommonButton';
 import SocialGroup from '../Component/SocialGroup';
 import styles from '../style';
 import {loginAsyncAction} from '../../../redux/user/AsyncAction';

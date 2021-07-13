@@ -5,7 +5,7 @@ import {Picker} from '@react-native-picker/picker';
 import styles from './styles/productDetailsStyle';
 // import {AccordionList} from '../../../Components/AccordionList';
 import {AverageRating} from '../../../Components/Rating';
-import CommonButton from '../../../Components/Button/CommonButton';
+import CommonButton from '../../../Components/Button/CommonButton/CommonButton';
 import SaleText from '../../../Components/CustomText/SaleText';
 import FavoriteButton from '../../../Components/Button/FavoriteButton/FavoriteButton';
 const ProductDetails = ({navigation, route}) => {
