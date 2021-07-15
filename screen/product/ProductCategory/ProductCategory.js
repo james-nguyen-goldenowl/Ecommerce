@@ -7,38 +7,19 @@ import {
   View,
   StatusBar,
   Image,
+  ScrollView,
 } from 'react-native';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import ItemProductVertical from '../../../Components/Flatlist/FlatListItem/ProductItem/ItemProductVertical';
 import ItemProductHorizontal from '../../../Components/Flatlist/FlatListItem/ProductItem/ItemProductHorizontal';
 import ModalSort from './Component/ModalSort/ModalSort';
 import Colors from '../../../utils/Color';
+import {getProductByCategory} from '../../../redux/products/Slice';
 const ProductCategory = ({navigation, route}) => {
-  const category = route.params.category;
-  console.log(route);
-  let sort;
-  const products = useSelector(state => state.products.products);
-  route.params.sort !== undefined ? (sort = route.params.sort) : null;
-  const [productCategory, setProducts] = useState(
-    products.filter(product => product.category === category),
-  );
-  useEffect(() => {
-    if (route.params.sort !== undefined) {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      sort = route.params.sort;
-      console.log('line 28', sort);
-      if (sort === 'Price: lowest to high') {
-        setProducts(
-          productCategory.sort(function (a, b) {
-            let priceA = Number(a.price.replace(/[^0-9.-]+/g, ''));
-            let priceB = Number(b.price.replace(/[^0-9.-]+/g, ''));
-            console.log(priceA);
-            return priceA - priceB;
-          }),
-        );
-      }
-    }
-  }, [route.params.sort]);
+  const categoryID = route.params.categoryID;
+  const productCategory = useSelector(state => state.products.productCategory);
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(getProductByCategory(categoryID)), []);
   const [itemShowType, setShowType] = useState('horizontal');
   const [selectedId, setSelectedId] = useState(null);
   const onChangeView = () => {
@@ -69,7 +50,7 @@ const ProductCategory = ({navigation, route}) => {
     );
   };
   return (
-    <View>
+    <ScrollView style={{flex: 1}}>
       <StatusBar
         hidden={false}
         backgroundColor={Colors.WHITE}
@@ -131,14 +112,9 @@ const ProductCategory = ({navigation, route}) => {
         )}
       </View>
       {isModal ? (
-        <ModalSort
-          press={press}
-          isOpen={isModal}
-          navigation={navigation}
-          category={category}
-        />
+        <ModalSort press={press} isOpen={isModal} navigation={navigation} />
       ) : null}
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({

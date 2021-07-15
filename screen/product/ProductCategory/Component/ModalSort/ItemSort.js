@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, Alert} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
+import {useDispatch} from 'react-redux';
 import Colors from '../../../../../utils/Color';
-const ItemSort = ({item, navigation, category}) => {
+import {sortProduct} from '../../../../../redux/products/Slice';
+const ItemSort = ({item}) => {
   const [background, setBackColor] = useState(Colors.BACKGROUND);
   const [textColor, setColor] = useState(Colors.BLACK);
+  const dispatch = useDispatch();
   const styles = StyleSheet.create({
     sortOption: {
       width: '100%',
@@ -22,10 +25,7 @@ const ItemSort = ({item, navigation, category}) => {
   const onSort = () => {
     // changeColor();
     // navigation.setPar
-    navigation.setParams({
-      category: category,
-      sort: item.title,
-    });
+    dispatch(sortProduct(item.title));
   };
   return (
     <ScrollView>

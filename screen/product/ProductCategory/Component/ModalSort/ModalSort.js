@@ -18,17 +18,16 @@ const options = [
   {id: 4, title: 'Price: lowest to high'},
   {id: 5, title: 'Price: highest to low'},
 ];
-const ModalSort = ({isOpen, press, navigation, category}) => {
+const ModalSort = ({isOpen, press, navigation}) => {
   // eslint-disable-next-line no-unused-vars
   const [swipeToClose, setSwipeToClose] = useState(true);
   const [isOpenModal, setIsOpenModal] = useState(null);
-  console.log('Modal box', category);
   useEffect(() => {
     setIsOpenModal(isOpen);
   }, [isOpen, press]);
 
   const renderItem = ({item}) => {
-    return <ItemSort item={item} navigation={navigation} category={category} />;
+    return <ItemSort item={item} navigation={navigation} />;
   };
   return (
     <Modal

@@ -34,8 +34,6 @@ export default function TabNavigation() {
               : require('../public/user.png');
           }
 
-          // You can return any component that you like here!
-          // return <FontAwesome5 name={iconName} size={25} color={color} />;
           return <Image source={iconSource} style={styles.image} />;
         },
       })}

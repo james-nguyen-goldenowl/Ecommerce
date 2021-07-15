@@ -1,5 +1,4 @@
-import { useDispatch } from 'react-redux';
-import {productList} from './productData';
+import categoryList from './categoryData';
 const fakeApi = (resolve = true, dataReturn, timeDelay) => {
   return new Promise((res, rej) => {
     setTimeout(() => {
@@ -11,8 +10,7 @@ const fakeApi = (resolve = true, dataReturn, timeDelay) => {
   });
 };
 
-const getProduct = async () => {
-  return await fakeApi(true, productList, 100);
+const getCategory = async () => {
+  return await fakeApi(true, categoryList, 100);
 };
-
-export default {getProduct};
+export default {getCategory};

@@ -1,0 +1,9 @@
+version: 3.0.0-beta.9
+files:
+  - url: Reactotron-3.0.0-beta.9.AppImage
+    sha512: Y2ihGl5cQqv7reVzavoqNZRcorveaD+XAgA8+m5H7ybQ0RVcF6MSPR5XHVbt9ZQ2AtPqI7X6Ky/J80Nz4Zh67Q==
+    size: 84678644
+    blockMapSize: 88072
+path: Reactotron-3.0.0-beta.9.AppImage
+sha512: Y2ihGl5cQqv7reVzavoqNZRcorveaD+XAgA8+m5H7ybQ0RVcF6MSPR5XHVbt9ZQ2AtPqI7X6Ky/J80Nz4Zh67Q==
+releaseDate: '2020-03-01T18:43:48.067Z'

@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import ShopScreen from '../screen/Shop/Shop';
 const ShopStack = createStackNavigator();
 import {TouchableOpacity, Image} from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import ProductCategory from '../screen/product/ProductCategory/ProductCategory';
+import {useDispatch} from 'react-redux';
+import {categoryAsyncAction} from '../redux/category/AsyncAction';
 const ShopStackScreen = () => {
+  const [pressSearch, setPress] = useState(false);
+ 
   return (
     <ShopStack.Navigator
       initialRouteName="Category"
@@ -47,7 +51,7 @@ const ShopStackScreen = () => {
                 style={{paddingRight: 20}}
                 onPress={() =>
                   navigation.navigate('ProductCategory', {
-                    pressSearchButton: true,
+                    pressSearchButton: !pressSearch,
                   })
                 }>
                 <FontAwesome5Icon name="search" size={20} />

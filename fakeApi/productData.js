@@ -6,7 +6,7 @@ const productList = [
     imageUrl: require('../public/1.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'T-shirt',
+    category: 1,
     categoryBonus: 'New',
   },
   {
@@ -17,7 +17,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet'],
     size: ['S', 'M', 'L'],
     sale: '$22.56',
-    category: 'Tops',
+    category: 2,
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$23.50',
-    category: 'Ice Cream - Fudge Bars',
+    category: 3,
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$23.98',
-    category: 'Tops',
+    category: 2,
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$32.72',
-    category: 'Tops',
+    category: 2,
   },
   {
     id: 6,
@@ -56,7 +56,7 @@ const productList = [
     imageUrl: require('../public/6.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Tops',
+    category: 2,
     categoryBonus: 'New',
   },
   {
@@ -67,7 +67,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Puce'],
     size: ['S', 'M', 'L', '2XL'],
     categoryBonus: 'New',
-    category: 'Pork - Hock And Feet Attached',
+    category: 3,
   },
   {
     id: 8,
@@ -76,7 +76,7 @@ const productList = [
     imageUrl: require('../public/8.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Tops',
+    category: 2,
     categoryBonus: 'New',
   },
   {
@@ -87,7 +87,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow'],
     size: ['S', 'M', 'L', '2XL'],
     categoryBonus: 'New',
-    category: 'Demo',
+    category: 4,
   },
   {
     id: 10,
@@ -97,7 +97,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     categoryBonus: 'New',
-    category: 'Tops',
+    category: 2,
   },
   {
     id: 11,
@@ -107,7 +107,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$30.01',
-    category: 'Wine - Red Oakridge Merlot',
+    category: 4,
   },
   {
     id: 12,
@@ -117,7 +117,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$25.99',
-    category: 'Sugar - Palm',
+    category: 4,
   },
   {
     id: 13,
@@ -127,7 +127,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise', 'Blue'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$30.46',
-    category: 'Juice - Lime',
+    category: 5,
   },
   {
     id: 14,
@@ -137,7 +137,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$20.18',
-    category: 'Tops',
+    category: 2,
   },
   {
     id: 15,
@@ -147,7 +147,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     categoryBonus: 'New',
-    category: 'Tops',
+    category: 2,
   },
   {
     id: 16,
@@ -157,7 +157,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$26.10',
-    category: 'Soup - Clam Chowder, Dry Mix',
+    category: 5,
   },
   {
     id: 17,
@@ -167,7 +167,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     categoryBonus: 'New',
-    category: 'Salt - Table',
+    category: 5,
   },
   {
     id: 18,
@@ -176,7 +176,7 @@ const productList = [
     imageUrl: require('../public/18.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Appetiser - Bought',
+    category: 6,
     categoryBonus: 'New',
   },
   {
@@ -187,7 +187,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$29.43',
-    category: 'Juice - Apple, 500 Ml',
+    category: 7,
   },
   {
     id: 20,
@@ -196,7 +196,7 @@ const productList = [
     imageUrl: require('../public/20.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Demo',
+    category: 6,
     categoryBonus: 'New',
   },
   {
@@ -207,7 +207,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$20.88',
-    category: 'Jam - Raspberry,jar',
+    category: 8,
   },
   {
     id: 22,
@@ -217,7 +217,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$40',
-    category: 'Demo',
+    category: 8,
   },
   {
     id: 23,
@@ -227,7 +227,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$23.69',
-    category: 'Mustard',
+    category: 9,
   },
   {
     id: 24,
@@ -236,8 +236,8 @@ const productList = [
     imageUrl: require('../public/24.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Lemon Grass',
-    categoryBonus: 'New',
+    category: 5,
+    categoryBonus: 8,
   },
   {
     id: 25,
@@ -246,7 +246,7 @@ const productList = [
     imageUrl: require('../public/25.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Lentils',
+    category: 6,
   },
   {
     id: 26,
@@ -255,7 +255,7 @@ const productList = [
     imageUrl: require('../public/26.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Demo',
+    category: 7,
     categoryBonus: 'New',
   },
   {
@@ -266,7 +266,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$30.74',
-    category: 'Assorted',
+    category: 10,
   },
   {
     id: 28,
@@ -275,7 +275,7 @@ const productList = [
     imageUrl: require('../public/28.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Demo',
+    category: 11,
     categoryBonus: 'New',
   },
   {
@@ -286,7 +286,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$40.49',
-    category: 'Tart',
+    category: 12,
   },
   {
     id: 30,
@@ -295,7 +295,7 @@ const productList = [
     imageUrl: require('../public/30.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Quail',
+    category: 13,
     categoryBonus: 'New',
   },
   {
@@ -306,7 +306,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$26.34',
-    category: 'Pepper',
+    category: 10,
   },
   {
     id: 32,
@@ -316,7 +316,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$22.44',
-    category: 'Onions',
+    category: 14,
   },
   {
     id: 33,
@@ -326,7 +326,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$21.86',
-    category: 'Wooden',
+    category: 12,
   },
   {
     id: 34,
@@ -335,7 +335,7 @@ const productList = [
     imageUrl: require('../public/34.jpeg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Flour',
+    category: 11,
     categoryBonus: 'New',
   },
   {
@@ -346,7 +346,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$33.47',
-    category: 'Pork',
+    category: 15,
   },
   {
     id: 36,
@@ -356,7 +356,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$25.04',
-    category: 'Crab',
+    category: 11,
   },
   {
     id: 37,
@@ -365,7 +365,7 @@ const productList = [
     imageUrl: require('../public/37.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Salmon',
+    category: 16,
   },
   {
     id: 38,
@@ -375,7 +375,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$27.65',
-    category: 'Crush',
+    category: 16,
   },
   {
     id: 39,
@@ -384,7 +384,7 @@ const productList = [
     imageUrl: require('../public/39.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Wine',
+    category: 11,
     categoryBonus: 'New',
   },
   {
@@ -395,7 +395,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$21.39',
-    category: 'Shrimp',
+    category: 11,
   },
   {
     id: 41,
@@ -405,7 +405,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$22.69',
-    category: 'Wine',
+    category: 14,
   },
   {
     id: 42,
@@ -414,7 +414,7 @@ const productList = [
     imageUrl: require('../public/42.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Container',
+    category: 14,
     categoryBonus: 'New',
   },
   {
@@ -424,8 +424,8 @@ const productList = [
     imageUrl: require('../public/43.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    sale: '$20.21',
-    category: 'Glaze',
+    sale: 16,
+    category: 10,
   },
   {
     id: 44,
@@ -434,8 +434,8 @@ const productList = [
     imageUrl: require('../public/44.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Chick Peas',
-    categoryBonus: 'New',
+    category: 13,
+    categoryBonus: 4,
   },
   {
     id: 45,
@@ -445,7 +445,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$22.71',
-    category: 'Lobster',
+    category: 15,
   },
   {
     id: 46,
@@ -454,8 +454,8 @@ const productList = [
     imageUrl: require('../public/46.jpg'),
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Lady Fingers',
-    categoryBonus: 'New',
+    category: 1,
+    categoryBonus: 16,
   },
   {
     id: 47,
@@ -465,7 +465,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$23.74',
-    category: 'Water - Tonic',
+    category: 13,
   },
   {
     id: 48,
@@ -475,8 +475,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$23.16',
-    category: 'Beef Wellington',
-    categoryBonus: 'New',
+    category: 12,
   },
   {
     id: 49,
@@ -486,7 +485,7 @@ const productList = [
     color: ['Indigo', 'Teal', 'Mauv', 'Violet', 'Yellow', 'Turquoise'],
     size: ['S', 'M', 'L', '2XL'],
     sale: '$33.45',
-    category: 'Pasta',
+    category: 16,
   },
   {
     id: 50,
@@ -495,7 +494,7 @@ const productList = [
     imageUrl: require('../public/50.jpg'),
     color: 'Orange',
     size: ['S', 'M', 'L', '2XL'],
-    category: 'Tart Shell',
+    category: 9,
     categoryBonus: 'New',
   },
 ];

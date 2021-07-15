@@ -11,8 +11,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import ProductList from '../../Components/Flatlist/ProductList';
 import {productAsyncAction} from '../../redux/products/AsyncAction';
 import {ScrollView} from 'react-native';
+import {categoryAsyncAction} from '../../redux/category/AsyncAction';
 const HomeScreen = ({navigation}) => {
   const dispatch = useDispatch();
+  dispatch(categoryAsyncAction());
   const productsList = useSelector(state => state.products.products);
   const [products, setProducts] = useState(productsList);
   useEffect(() => {
