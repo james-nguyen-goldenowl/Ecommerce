@@ -12,9 +12,9 @@ import {
 import {useDispatch, useSelector} from 'react-redux';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import CommonButton from '../../Components/Button/CommonButton/CommonButton';
-import {searchState} from '../../redux/category/Slice';
 import Title from '../../utils/Title';
 import Colors from '../../utils/Color';
+import {searchCategory} from './Slice';
 const Item = ({category, navigation}) => (
   <TouchableOpacity
     onPress={() =>
@@ -44,11 +44,16 @@ const ShopScreen = ({navigation, route}) => {
   useEffect(() => {
     pressSearchButton === true ? setPressSearch(pressSearchButton) : false;
   }, [pressSearchButton]);
-  const stateCategory = useSelector(state => state.category);
-  const categoryList = stateCategory.category;
-  const searchText = stateCategory.searchText;
-  const a = categoryList;
-  const [data, setData] = useState(a);
+  const shopState = useSelector(state => state.shop);
+  const category = useSelector(state => state.category.category);
+  const searchText = shopState.searchText;
+  const [data, setData] = useState([]);
+  setTimeout(() => {
+    setData(category);
+  }, 1000);
+  useEffect(() => {
+    setData(shopState.categoryView);
+  }, [searchText, shopState.categoryView]);
   const renderItem = ({item}) => {
     return <Item category={item} navigation={navigation} />;
   };
@@ -79,8 +84,11 @@ const ShopScreen = ({navigation, route}) => {
                 style={{fontSize: 15, paddingLeft: 15}}
                 value={searchText}
                 onChangeText={text => {
-                  dispatch(searchState(text));
-                  setData(stateCategory.searchResult);
+                  let action = {
+                    searchText: text,
+                    category: category,
+                  };
+                  dispatch(searchCategory(action));
                 }}
               />
             </View>

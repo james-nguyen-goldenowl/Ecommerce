@@ -5,8 +5,6 @@ const categorySlice = createSlice({
   name: 'category',
   initialState: {
     category: [],
-    searchText: '',
-    searchResult: null,
     status: null,
     message: null,
   },
@@ -14,15 +12,6 @@ const categorySlice = createSlice({
     clearState: state => {
       state.status = null;
       state.message = null;
-    },
-    searchState: (state, action) => {
-      state.searchText = action.payload;
-      const filterResult = state.category.filter(
-        item =>
-          item.name.toLowerCase().indexOf(state.searchText.toLowerCase()) !==
-          -1,
-      );
-      state.searchResult = filterResult;
     },
   },
   extraReducers: {
@@ -41,7 +30,7 @@ const categorySlice = createSlice({
   },
 });
 const {actions, reducer} = categorySlice;
-const {clearState, searchState} = actions;
-export {clearState, searchState};
+const {clearState} = actions;
+export {clearState};
 const categoryReducer = reducer;
 export default categoryReducer;
