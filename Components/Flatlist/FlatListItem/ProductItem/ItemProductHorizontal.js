@@ -29,7 +29,7 @@ const ItemProductHorizontal = ({item, navigation}) => {
           <View>
             <AverageRating idProduct={item.id} />
           </View>
-          <Text style={styles.price}>{item.price}</Text>
+          <Text style={styles.price}>${item.price}</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity style={styles.buttonLike}>

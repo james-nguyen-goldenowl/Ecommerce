@@ -26,7 +26,7 @@ const ItemProductVertical = ({item, navigation}) => {
         <Text style={styles.itemTilte} numberOfLines={1} ellipsizeMode="tail">
           {item.name}
         </Text>
-        <Text style={styles.price}>{item.price}</Text>
+        <Text style={styles.price}>${item.price}</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.buttonLike}>
         <FavoriteButton item={item} />

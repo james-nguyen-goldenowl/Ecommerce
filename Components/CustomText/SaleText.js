@@ -3,9 +3,8 @@ import {View, Text, StyleSheet} from 'react-native';
 const SaleText = ({item}) => {
   let percentSale = 0;
   if (item.sale !== undefined) {
-    let sale = Number(item.sale.replace(/[^0-9.-]+/g, ''));
-    let price = Number(item.price.replace(/[^0-9.-]+/g, ''));
-    percentSale = '-' + Math.round(((price - sale) / price) * 100) + '%';
+    percentSale =
+      '-' + Math.round(((item.price - item.sale) / item.price) * 100) + '%';
   }
   return (
     <View>
