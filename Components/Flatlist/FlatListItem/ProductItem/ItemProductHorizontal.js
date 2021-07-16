@@ -11,7 +11,7 @@ import {
 import Colors from '../../../../utils/Color';
 import AverageRating from '../../../Rating/AverageRating';
 import FavoriteButton from '../../../Button/FavoriteButton/FavoriteButton';
-const {width, height} = Dimensions.get('screen');
+const {width} = Dimensions.get('screen');
 const ItemProductHorizontal = ({item, navigation}) => {
   return (
     <View style={styles.root}>

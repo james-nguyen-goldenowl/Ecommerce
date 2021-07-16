@@ -1,3 +1,5 @@
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
 import {
   TouchableOpacity,
@@ -18,10 +20,15 @@ import {getProductByCategory} from '../../../redux/products/Slice';
 const ProductCategory = ({navigation, route}) => {
   const categoryID = route.params.categoryID;
   const productCategory = useSelector(state => state.products.productCategory);
+  const categoryList = useSelector(state => state.category.category);
+  const sort = useSelector(state => state.products.sort);
   const dispatch = useDispatch();
-  useEffect(() => dispatch(getProductByCategory(categoryID)), []);
+  const [data, setData] = useState(productCategory);
   const [itemShowType, setShowType] = useState('horizontal');
+  // eslint-disable-next-line no-unused-vars
   const [selectedId, setSelectedId] = useState(null);
+  useEffect(() => dispatch(getProductByCategory(categoryID)), []);
+  useEffect(() => setData(productCategory), [productCategory, sort]);
   const onChangeView = () => {
     itemShowType === 'horizontal'
       ? setShowType('vertical')
@@ -30,9 +37,13 @@ const ProductCategory = ({navigation, route}) => {
   const [isModal, setModal] = useState(false);
   const [press, setPress] = useState(0);
   const renderItem = ({item}) => {
+    const categoryItem = categoryList.find(
+      element => element.id === item.category,
+    );
+    item = {...item, category: categoryItem.name};
     return (
       <View style={styles.root}>
-        {itemShowType === 'vertical' && (
+        {itemShowType === 'vertical' ? (
           <View style={styles.containerVertical}>
             <ItemProductVertical
               item={item}
@@ -40,8 +51,7 @@ const ProductCategory = ({navigation, route}) => {
               onPress={() => setSelectedId(item.id)}
             />
           </View>
-        )}
-        {itemShowType === 'horizontal' && (
+        ) : (
           <View style={styles.containerHorizontal}>
             <ItemProductHorizontal item={item} navigation={{navigation}} />
           </View>
@@ -50,7 +60,7 @@ const ProductCategory = ({navigation, route}) => {
     );
   };
   return (
-    <ScrollView style={{flex: 1}}>
+    <View style={{flex: 1}}>
       <StatusBar
         hidden={false}
         backgroundColor={Colors.WHITE}
@@ -94,10 +104,10 @@ const ProductCategory = ({navigation, route}) => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.root}>
+      <ScrollView contentContainerStyle={styles.root}>
         {itemShowType === 'vertical' && (
           <FlatList
-            data={productCategory}
+            data={data}
             numColumns={2}
             renderItem={renderItem}
             keyExtractor={item => item.id}
@@ -105,16 +115,16 @@ const ProductCategory = ({navigation, route}) => {
         )}
         {itemShowType === 'horizontal' && (
           <FlatList
-            data={productCategory}
+            data={data}
             renderItem={renderItem}
             keyExtractor={item => item.id}
           />
         )}
-      </View>
+      </ScrollView>
       {isModal ? (
         <ModalSort press={press} isOpen={isModal} navigation={navigation} />
       ) : null}
-    </ScrollView>
+    </View>
   );
 };
 const styles = StyleSheet.create({

@@ -16,7 +16,6 @@ const ModalBoxRating = ({isOpen, pressButton}) => {
   const [swipeToClose, setSwipeToClose] = useState(true);
   const [rating, setRating] = useState(0);
   const [isOpenModal, setIsOpenModal] = useState(null);
-  console.log()
   useEffect(() => {
     setIsOpenModal(isOpen);
   }, [isOpen, pressButton]);

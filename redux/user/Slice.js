@@ -34,7 +34,6 @@ const profileSlice = createSlice({
     [loginAsyncAction.rejected]: (state, action) => {
       state.status = apiStatus.ERROR;
       state.message = action.payload;
-      console.log('🚀 ~ file: Slice.js ~ line 40 ~ action', state.message);
     },
   },
 });

@@ -28,6 +28,7 @@ const ProfileStackScreen = () => {
                 onPress={() => dispatch(clearState())}>
                 <Image
                   source={require('../public/logout.png')}
+                  // eslint-disable-next-line react-native/no-inline-styles
                   style={{width: 30, height: 30}}
                 />
               </TouchableOpacity>

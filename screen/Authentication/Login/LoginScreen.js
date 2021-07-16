@@ -45,7 +45,6 @@ const LoginScreen = props => {
           values.email === '' || values.password === ''
             ? Alert.alert('Please complete all information!')
             : dispatch(loginAsyncAction(values));
-          console.log(user.message === '');
           user.message !== '' || user.message
             ? Alert.alert('Login Information is incorrect')
             : null;

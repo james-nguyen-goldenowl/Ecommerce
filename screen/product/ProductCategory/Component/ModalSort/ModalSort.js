@@ -1,14 +1,6 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
 import Modal from 'react-native-modalbox';
-import {
-  View,
-  StyleSheet,
-  Platform,
-  Text,
-  TouchableOpacity,
-  FlatList,
-} from 'react-native';
+import {View, StyleSheet, Platform, Text, FlatList} from 'react-native';
 import Colors from '../../../../../utils/Color';
 import ItemSort from './ItemSort';
 const options = [

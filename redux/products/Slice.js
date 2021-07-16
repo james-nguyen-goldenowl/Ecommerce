@@ -17,7 +17,6 @@ const productsSlice = createSlice({
       state.message = null;
     },
     getProductByCategory: (state, action) => {
-      console.log(action.payload);
       if (action.payload !== 'all') {
         const idCategory = action.payload;
         state.productCategory = state.products.filter(
@@ -28,31 +27,30 @@ const productsSlice = createSlice({
       }
     },
     sortProduct: (state, action) => {
+      let sortArr = [];
       state.sort = action.payload;
+
       switch (state.sort) {
         case 'Popular':
+          state.productCategory = state.products;
         case 'Newest':
         case 'Customer review':
         case 'Price: lowest to high':
-          state.productCategory = state.productCategory.sort(function (a, b) {
+          sortArr = state.productCategory.sort(function (a, b) {
             let priceA = Number(a.price.replace(/[^0-9.-]+/g, ''));
             let priceB = Number(b.price.replace(/[^0-9.-]+/g, ''));
             return priceA - priceB;
           });
-          state = {...state};
+          state = {...state, productCategory: sortArr};
         case 'Price: highest to low':
-          state.productCategory = state.productCategory
-            .sort(function (a, b) {
-              let priceA = Number(a.price.replace(/[^0-9.-]+/g, ''));
-              let priceB = Number(b.price.replace(/[^0-9.-]+/g, ''));
-              return priceB - priceA;
-            })
-            .reverse();
-          state = {...state};
+          sortArr = state.productCategory.sort(function (a, b) {
+            let priceA = Number(a.price.replace(/[^0-9.-]+/g, ''));
+            let priceB = Number(b.price.replace(/[^0-9.-]+/g, ''));
+            return priceB - priceA;
+          });
+          state = {...state, productCategory: sortArr};
         default:
-          state = {...state};
       }
-      console.log(state);
     },
   },
   extraReducers: {
@@ -62,7 +60,6 @@ const productsSlice = createSlice({
     },
     [productAsyncAction.fulfilled]: (state, action) => {
       state.status = apiStatus.SUCCESS;
-      // console.log(action);
       state.products = action.payload;
     },
     [productAsyncAction.rejected]: (state, action) => {

@@ -1,8 +1,7 @@
 import React from 'react';
-import {View, StyleSheet, Text, Image, StatusBar} from 'react-native';
+import {View, Text, Image, StatusBar} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
-import {useDispatch, useSelector} from 'react-redux';
-import {clearState} from '../../redux/user/Slice';
+import {useSelector} from 'react-redux';
 import ListInfo from './Component/ListInfo/ListInfo';
 import styles from './styles';
 const ProfileScreen = () => {

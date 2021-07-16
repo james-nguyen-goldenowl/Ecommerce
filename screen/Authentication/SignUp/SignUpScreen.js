@@ -55,7 +55,7 @@ const SignUpScreen = props => {
           values.password === '' ||
           values.userName === ''
             ? Alert.alert('Please complete all information!')
-            : console.log('Sign up', values);
+            : null;
         }}>
         {formik => {
           const {touched, handleSubmit} = formik;
