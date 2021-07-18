@@ -27,7 +27,6 @@ const ProductCategory = ({navigation, route}) => {
   }, []);
   const productCategory = useSelector(state => state.productCategory.products);
   const [data, setData] = useState(productCategory);
-  console.log("🚀 ~ file: ProductCategory.js ~ line 30 ~ ProductCategory ~ data", data)
   const [itemShowType, setShowType] = useState('horizontal');
   // eslint-disable-next-line no-unused-vars
   const [selectedId, setSelectedId] = useState(null);

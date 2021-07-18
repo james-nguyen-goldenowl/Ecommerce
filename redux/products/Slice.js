@@ -14,32 +14,7 @@ const productsSlice = createSlice({
       state.status = null;
       state.message = null;
     },
-    sortProduct: (state, action) => {
-      let sortArr = [];
-      state.sort = action.payload;
-
-      switch (state.sort) {
-        case 'Popular':
-          state.productCategory = state.products;
-        case 'Newest':
-        case 'Customer review':
-        case 'Price: lowest to high':
-          sortArr = state.productCategory.sort(function (a, b) {
-            let priceA = Number(a.price.replace(/[^0-9.-]+/g, ''));
-            let priceB = Number(b.price.replace(/[^0-9.-]+/g, ''));
-            return priceA - priceB;
-          });
-          state = {...state, productCategory: sortArr};
-        case 'Price: highest to low':
-          sortArr = state.productCategory.sort(function (a, b) {
-            let priceA = Number(a.price.replace(/[^0-9.-]+/g, ''));
-            let priceB = Number(b.price.replace(/[^0-9.-]+/g, ''));
-            return priceB - priceA;
-          });
-          state = {...state, productCategory: sortArr};
-        default:
-      }
-    },
+    
   },
   extraReducers: {
     [productAsyncAction.pending]: state => {
