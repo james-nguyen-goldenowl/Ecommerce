@@ -1,5 +1,4 @@
 import {createSlice} from '@reduxjs/toolkit';
-import store from '../../redux/configureStore';
 const ShopSlice = createSlice({
   name: 'shopslice',
   initialState: {

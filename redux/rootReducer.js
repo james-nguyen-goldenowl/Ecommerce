@@ -4,6 +4,7 @@ import favoriteReducer from './favorite/Slice';
 import categoryReducer from './category/Slice';
 import {combineReducers} from 'redux';
 import shopScreenReducer from '../screen/Shop/Slice';
+import productCategoryReducer from '../screen/product/ProductCategory/Slice';
 // import cartReducer from './cart/Slice';
 const rootReducer = combineReducers({
   products: productsReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   favorite: favoriteReducer,
   category: categoryReducer,
   shop: shopScreenReducer,
+  productCategory: productCategoryReducer,
   // cart: cartReducer,
 });
 

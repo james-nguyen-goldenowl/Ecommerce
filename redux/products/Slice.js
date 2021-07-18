@@ -6,8 +6,6 @@ const productsSlice = createSlice({
   name: 'products',
   initialState: {
     products: [],
-    productCategory: [],
-    sort: '',
     status: null,
     message: null,
   },
@@ -15,16 +13,6 @@ const productsSlice = createSlice({
     clearState: state => {
       state.status = null;
       state.message = null;
-    },
-    getProductByCategory: (state, action) => {
-      if (action.payload !== 'all') {
-        const idCategory = action.payload;
-        state.productCategory = state.products.filter(
-          item => item.category === idCategory,
-        );
-      } else {
-        state.productCategory = state.products;
-      }
     },
     sortProduct: (state, action) => {
       let sortArr = [];
@@ -69,6 +57,6 @@ const productsSlice = createSlice({
   },
 });
 const {actions, reducer} = productsSlice;
-const {clearState, getProductByCategory, sortProduct} = actions;
-export {clearState, getProductByCategory, sortProduct};
+const {clearState, sortProduct} = actions;
+export {clearState, sortProduct};
 export default reducer;

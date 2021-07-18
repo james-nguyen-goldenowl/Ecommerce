@@ -16,19 +16,21 @@ import ItemProductVertical from '../../../Components/Flatlist/FlatListItem/Produ
 import ItemProductHorizontal from '../../../Components/Flatlist/FlatListItem/ProductItem/ItemProductHorizontal';
 import ModalSort from './Component/ModalSort/ModalSort';
 import Colors from '../../../utils/Color';
-import {getProductByCategory} from '../../../redux/products/Slice';
+import {getAll, getByID} from './Slice';
 const ProductCategory = ({navigation, route}) => {
-  const categoryID = route.params.categoryID;
-  const productCategory = useSelector(state => state.products.productCategory);
-  const categoryList = useSelector(state => state.category.category);
-  const sort = useSelector(state => state.products.sort);
   const dispatch = useDispatch();
+  let categoryID = route.params.categoryID;
+  const productState = useSelector(state => state.products.products);
+  useEffect(() => {
+    dispatch(getAll(productState));
+    categoryID !== 'all' ? dispatch(getByID(categoryID)) : null;
+  }, []);
+  const productCategory = useSelector(state => state.productCategory.products);
   const [data, setData] = useState(productCategory);
+  console.log("🚀 ~ file: ProductCategory.js ~ line 30 ~ ProductCategory ~ data", data)
   const [itemShowType, setShowType] = useState('horizontal');
   // eslint-disable-next-line no-unused-vars
   const [selectedId, setSelectedId] = useState(null);
-  useEffect(() => dispatch(getProductByCategory(categoryID)), []);
-  useEffect(() => setData(productCategory), [productCategory, sort]);
   const onChangeView = () => {
     itemShowType === 'horizontal'
       ? setShowType('vertical')
@@ -37,10 +39,10 @@ const ProductCategory = ({navigation, route}) => {
   const [isModal, setModal] = useState(false);
   const [press, setPress] = useState(0);
   const renderItem = ({item}) => {
-    const categoryItem = categoryList.find(
-      element => element.id === item.category,
-    );
-    item = {...item, category: categoryItem.name};
+    // const categoryItem = categoryList.find(
+    //   element => element.id === item.category,
+    // );
+    // item = {...item, category: categoryItem.name};
     return (
       <View style={styles.root}>
         {itemShowType === 'vertical' ? (
