@@ -5,7 +5,8 @@ import categoryReducer from './category/Slice';
 import {combineReducers} from 'redux';
 import shopScreenReducer from '../screen/Shop/Slice';
 import productCategoryReducer from '../screen/product/ProductCategory/Slice';
-// import cartReducer from './cart/Slice';
+import cartReducer from './cart/Slice';
+import productReducer from '../screen/product/ProductDetail/Slice';
 const rootReducer = combineReducers({
   products: productsReducer,
   user: profileReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   category: categoryReducer,
   shop: shopScreenReducer,
   productCategory: productCategoryReducer,
-  // cart: cartReducer,
+  cart: cartReducer,
+  productReducer: productReducer,
 });
 
 export default rootReducer;
