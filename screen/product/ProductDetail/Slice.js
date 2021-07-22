@@ -1,5 +1,4 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {initial} from 'lodash';
 const ProductDetailSlice = createSlice({
   name: 'productDetail',
   initialState: {

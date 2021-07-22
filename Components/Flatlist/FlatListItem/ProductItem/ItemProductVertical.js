@@ -23,7 +23,7 @@ const ItemProductVertical = ({item, navigation}) => {
         <Text style={{color: '#9B9B9B', fontSize: 11, fontFamily: '#9B9B9B'}}>
           {item.category}
         </Text>
-        <Text style={styles.itemTilte} numberOfLines={1} ellipsizeMode="tail">
+        <Text style={styles.itemTitle} numberOfLines={1} ellipsizeMode="tail">
           {item.name}
         </Text>
         <Text style={styles.price}>${item.price}</Text>
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     color: 'white',
     // lineHeight: 11,
   },
-  itemTilte: {
+  itemTitle: {
     fontSize: 16,
     fontWeight: 'bold',
     color: 'black',

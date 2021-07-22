@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
 import {
   FlatList,
@@ -10,6 +11,7 @@ import {
 import {useDispatch, useSelector} from 'react-redux';
 import Colors from '../../../../utils/Color';
 import {getSize} from '../Slice';
+LogBox.ignoreAllLogs();
 const Item = ({item, onPress, backgroundColor, textColor}) => (
   <TouchableOpacity onPress={onPress} style={[styles.option, backgroundColor]}>
     <Text style={[textColor]}>{item}</Text>
@@ -19,7 +21,6 @@ const Item = ({item, onPress, backgroundColor, textColor}) => (
 const ListSize = ({product}) => {
   const sizeSelected = useSelector(state => state.productReducer.size);
   const [selectedId, setSelectedId] = useState(null);
-  // sizeSelected !== null ? setSelectedId(sizeSelected) : null;
   useEffect(() => {
     sizeSelected !== null ? setSelectedId(sizeSelected) : null;
   }, []);

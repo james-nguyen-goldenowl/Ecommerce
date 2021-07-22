@@ -26,6 +26,7 @@ const ProductCategory = ({navigation, route}) => {
     categoryID !== 'all' ? dispatch(getByID(categoryID)) : null;
   }, []);
   const productCategory = useSelector(state => state.productCategory.products);
+  // eslint-disable-next-line no-unused-vars
   const [data, setData] = useState(productCategory);
   const [itemShowType, setShowType] = useState('horizontal');
   // eslint-disable-next-line no-unused-vars

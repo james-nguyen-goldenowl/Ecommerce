@@ -18,12 +18,10 @@ const styles = StyleSheet.create({
   promoContainer: {
     width: 36,
     height: 36,
-    position: 'absolute',
     backgroundColor: Colors.BLACK,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    elevation: 5,
     borderRadius: 20,
   },
 });

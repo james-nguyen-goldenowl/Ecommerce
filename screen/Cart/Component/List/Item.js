@@ -1,16 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Text, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {Text, View, StyleSheet, Image} from 'react-native';
 import Colors from '../../../../utils/Color';
 import IncreaseButton from '../Button/IncreaseButton';
 import DecreaseButton from '../Button/DecreaseButton';
-import {addToCart, removeToCart} from '../../../../redux/cart/Slice';
-import {useDispatch, useSelector} from 'react-redux';
 const Item = ({item}) => {
   const product = item.product;
   const quantity = item.quantity;
-  // const cart = useSelector(state.state)
-  const dispatch = useDispatch();
   return (
     <View style={{height: 104, marginTop: 24}}>
       <View style={styles.root}>
@@ -79,7 +75,7 @@ const styles = StyleSheet.create({
     height: 104,
     fontFamily: 'Metropolis',
   },
-  itemTilte: {
+  itemTitle: {
     fontSize: 16,
     fontWeight: 'bold',
     color: 'black',

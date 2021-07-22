@@ -20,7 +20,7 @@ const ItemProductHorizontal = ({item, navigation}) => {
           <Image source={item.imageUrl} style={styles.image} />
         </View>
         <View style={styles.content}>
-          <Text style={styles.itemTilte} numberOfLines={1} ellipsizeMode="tail">
+          <Text style={styles.itemTitle} numberOfLines={1} ellipsizeMode="tail">
             {item.name}
           </Text>
           <Text style={{color: '#9B9B9B', fontSize: 11, fontFamily: '#9B9B9B'}}>
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Metropolis',
     // borderRadius: 8,
   },
-  itemTilte: {
+  itemTitle: {
     fontSize: 16,
     fontWeight: 'bold',
     color: 'black',

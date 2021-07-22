@@ -1,4 +1,3 @@
-/* eslint-disable no-fallthrough */
 import {createSlice} from '@reduxjs/toolkit';
 import {apiStatus} from '../../fakeApi';
 import {productAsyncAction} from './AsyncAction';
@@ -14,7 +13,6 @@ const productsSlice = createSlice({
       state.status = null;
       state.message = null;
     },
-    
   },
   extraReducers: {
     [productAsyncAction.pending]: state => {

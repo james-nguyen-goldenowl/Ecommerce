@@ -1,10 +1,11 @@
+/* eslint-disable prettier/prettier */
 const productList = [
   {
     id: 1,
     name: 'Romneya',
     price: 46.04,
     imageUrl: require('../public/1.jpg'),
-    color: ['Indigo', 'Teal', 'Mauv', 'Violet'],
+    color: ['Indigo', 'Teal', 'Maun', 'Violet'],
     size: ['S', 'M', 'L', '2XL'],
     category: 1,
     categoryBonus: 'New',

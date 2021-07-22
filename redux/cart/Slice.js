@@ -1,10 +1,10 @@
 import {createSlice} from '@reduxjs/toolkit';
 const findProduct = (item, product) => {
   let condition = 0;
-  item.product.id == product.id ? (condition = condition + 1) : null;
-  item.product.size == product.size ? (condition = condition + 1) : null;
-  item.product.color == product.color ? (condition = condition + 1) : null;
-  if (condition == 3) {
+  item.product.id === product.id ? (condition = condition + 1) : null;
+  item.product.size === product.size ? (condition = condition + 1) : null;
+  item.product.color === product.color ? (condition = condition + 1) : null;
+  if (condition === 3) {
     return true;
   } else {
     return false;

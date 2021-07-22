@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
 import {View, Text, Image, StatusBar, ScrollView, Alert} from 'react-native';
@@ -26,8 +27,8 @@ const ProductDetails = ({navigation, route}) => {
   const colorOrder = useSelector(state => state.productReducer.color);
   const addOrder = () => {
     if (
-      selectedSize == 'Size' ||
-      selectedColor == 'Color' ||
+      selectedSize === 'Size' ||
+      selectedColor === 'Color' ||
       sizeOrder === null ||
       colorOrder === null
     ) {

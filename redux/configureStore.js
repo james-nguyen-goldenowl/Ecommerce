@@ -1,7 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit';
 import rootReducer from './rootReducer';
 import {persistReducer} from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+// import storage from 'redux-persist/lib/storage';
 import AsyncStorage from '@react-native-community/async-storage';
 import thunk from 'redux-thunk';
 const persistConfig = {

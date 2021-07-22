@@ -7,6 +7,7 @@ import shopScreenReducer from '../screen/Shop/Slice';
 import productCategoryReducer from '../screen/product/ProductCategory/Slice';
 import cartReducer from './cart/Slice';
 import productReducer from '../screen/product/ProductDetail/Slice';
+import cartScreenReducer from '../screen/Cart/Slice';
 const rootReducer = combineReducers({
   products: productsReducer,
   user: profileReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   productCategory: productCategoryReducer,
   cart: cartReducer,
   productReducer: productReducer,
+  cartScreen: cartScreenReducer,
 });
 
 export default rootReducer;

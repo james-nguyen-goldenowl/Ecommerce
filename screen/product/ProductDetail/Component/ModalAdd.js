@@ -100,7 +100,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // marginVertical: 16,
     marginHorizontal: 16,
   },
   icon: {
