@@ -27,7 +27,6 @@ const ModalAdd = ({isOpen, pressButton, item}) => {
       product.size = sizeSelected;
       product.color = colorSelected;
       dispatch(addToCart(product));
-      dispatch(clearState());
     }
   };
   return (
