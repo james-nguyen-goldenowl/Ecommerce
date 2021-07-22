@@ -26,7 +26,6 @@ const cartSlice = createSlice({
     removeToCart: (state, action) => {
       const product = action.payload;
       const index = state.cart.findIndex(item => findProduct(item, product));
-      console.log(state.cart[index]);
       state.cart[index].quantity !== 1
         ? (state.cart[index].quantity = state.cart[index].quantity - 1)
         : (state.cart = state.cart.filter(item => !findProduct(item, product)));

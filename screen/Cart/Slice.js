@@ -8,7 +8,6 @@ const CartScreenSlice = createSlice({
   reducers: {
     caculateMoney: (state, action) => {
       state.cart = [...action.payload];
-      console.log('🚀 ~ file: Slice.js ~ line 11 ~ state.cart', state.cart);
       const cartExample = state.cart.map(
         item => item.product.price * item.quantity,
       );
