@@ -1,10 +1,11 @@
 import React from 'react';
+import { TouchableOpacity } from 'react-native';
 import {View, Text, Image, StatusBar} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {useSelector} from 'react-redux';
 import ListInfo from './Component/ListInfo/ListInfo';
 import styles from './styles';
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
   // const dispatch = useDispatch();
   const user = useSelector(state => state.user.user);
   const userName = `${user.firstName} ${user.lastName}`;
@@ -30,7 +31,9 @@ const ProfileScreen = () => {
           <ListInfo title="Payment methods" info="Visa **34" />
           <ListInfo title="Promocodes" info="You have special promocodes" />
           <ListInfo title="My reviews" info="Reviews for 4 items" />
-          <ListInfo title="Setting" info="Notification, password" />
+          <TouchableOpacity onPress={() => navigation.navigate('Setting')}>
+            <ListInfo title="Setting" info="Notification, password" />
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>

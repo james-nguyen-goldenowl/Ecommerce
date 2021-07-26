@@ -5,8 +5,16 @@ const profileSlice = createSlice({
   name: 'profile',
   initialState: {
     user: {
-      email: '',
+      id: '',
+      username: '',
       password: '',
+      email: '',
+      firstName: '',
+      lastName: '',
+      gender: '',
+      phone: '',
+      status: '',
+      avatar: '',
     },
     status: null,
     message: '',
@@ -16,9 +24,24 @@ const profileSlice = createSlice({
       state.status = null;
       state.message = '';
       state.user = {
-        email: '',
+        id: '',
+        username: '',
         password: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        gender: '',
+        phone: '',
+        status: '',
+        avatar: '',
       };
+    },
+    updatePassword: (state, action) => {
+      state.user.password = action.payload;
+      console.log(
+        '🚀 ~ file: Slice.js ~ line 41 ~ state.user.password',
+        state.user.password,
+      );
     },
   },
   extraReducers: {
@@ -38,7 +61,7 @@ const profileSlice = createSlice({
   },
 });
 const {actions, reducer} = profileSlice;
-const {clearState} = actions;
+const {clearState, updatePassword} = actions;
 const profileReducer = reducer;
-export {clearState};
+export {clearState, updatePassword};
 export default profileReducer;

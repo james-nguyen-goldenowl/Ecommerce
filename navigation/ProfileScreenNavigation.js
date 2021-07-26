@@ -1,11 +1,14 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 const ProfileStack = createStackNavigator();
-import {TouchableOpacity} from 'react-native';
+import {TouchableOpacity, LogBox} from 'react-native';
 import ProfileScreen from '../screen/Profile/Profile';
 import {clearState} from '../redux/user/Slice';
 import {useDispatch} from 'react-redux';
 import {Image} from 'react-native';
+import SettingScreen from '../screen/SettingScreen/Setting';
+import Colors from '../utils/Color';
+LogBox.ignoreAllLogs();
 const ProfileStackScreen = () => {
   const dispatch = useDispatch();
   return (
@@ -20,6 +23,11 @@ const ProfileStackScreen = () => {
         // eslint-disable-next-line react/jsx-no-duplicate-props
         options={({navigation, route}) => ({
           headerTitle: '',
+          headerStyle: {
+            backgroundColor: Colors.BACKGROUND,
+            borderColor: Colors.BACKGROUND,
+            borderWidth: 0,
+          },
           headerRight: () => {
             return (
               <TouchableOpacity
@@ -33,6 +41,16 @@ const ProfileStackScreen = () => {
                 />
               </TouchableOpacity>
             );
+          },
+        })}
+      />
+      <ProfileStack.Screen
+        name="Setting"
+        component={SettingScreen}
+        options={({navigation, route}) => ({
+          headerTitle: '',
+          headerStyle: {
+            backgroundColor: Colors.BACKGROUND,
           },
         })}
       />

@@ -8,6 +8,8 @@ import productCategoryReducer from '../screen/product/ProductCategory/Slice';
 import cartReducer from './cart/Slice';
 import productReducer from '../screen/product/ProductDetail/Slice';
 import cartScreenReducer from '../screen/Cart/Slice';
+import settingReducer from '../screen/SettingScreen/Slice';
+import passwordReducer from '../screen/SettingScreen/Components/Slice';
 const rootReducer = combineReducers({
   products: productsReducer,
   user: profileReducer,
@@ -18,6 +20,8 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   productReducer: productReducer,
   cartScreen: cartScreenReducer,
+  setting: settingReducer,
+  password: passwordReducer,
 });
 
 export default rootReducer;

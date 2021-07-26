@@ -5,5 +5,6 @@ const Colors = {
   WHITE: '#FFFFFF',
   SHADOW_BUTTON: 'rgba(211, 38, 38, 0.25)',
   BACKGROUND: '#F9F9F9',
+  SUCCESS: '#2AA952',
 };
 export default Colors;
