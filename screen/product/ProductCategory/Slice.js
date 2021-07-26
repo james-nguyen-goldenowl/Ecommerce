@@ -28,17 +28,13 @@ const productCategorySlice = createSlice({
         case 'Customer review':
         case 'Price: lowest to high':
           sortArr = state.products.sort(function (a, b) {
-            let priceA = Number(a.price.replace(/[^0-9.-]+/g, ''));
-            let priceB = Number(b.price.replace(/[^0-9.-]+/g, ''));
-            return priceA - priceB;
+            return a.price - b.price;
           });
           state = {...state, products: sortArr};
           break;
         case 'Price: highest to low':
           sortArr = state.products.sort(function (a, b) {
-            let priceA = Number(a.price.replace(/[^0-9.-]+/g, ''));
-            let priceB = Number(b.price.replace(/[^0-9.-]+/g, ''));
-            return priceB - priceA;
+            return b.price - a.price;
           });
           state = {...state, products: sortArr};
           break;
@@ -49,7 +45,7 @@ const productCategorySlice = createSlice({
   },
 });
 const {actions, reducer} = productCategorySlice;
-const {getAll, getByID} = actions;
+const {getAll, getByID, sortProduct} = actions;
 const productCategoryReducer = reducer;
 export default productCategoryReducer;
-export {getAll, getByID};
+export {getAll, getByID, sortProduct};

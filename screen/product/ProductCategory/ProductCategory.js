@@ -28,6 +28,9 @@ const ProductCategory = ({navigation, route}) => {
   const productCategory = useSelector(state => state.productCategory.products);
   // eslint-disable-next-line no-unused-vars
   const [data, setData] = useState(productCategory);
+  useEffect(() => {
+    setData(productCategory);
+  }, [productCategory]);
   const [itemShowType, setShowType] = useState('horizontal');
   // eslint-disable-next-line no-unused-vars
   const [selectedId, setSelectedId] = useState(null);
@@ -39,10 +42,6 @@ const ProductCategory = ({navigation, route}) => {
   const [isModal, setModal] = useState(false);
   const [press, setPress] = useState(0);
   const renderItem = ({item}) => {
-    // const categoryItem = categoryList.find(
-    //   element => element.id === item.category,
-    // );
-    // item = {...item, category: categoryItem.name};
     return (
       <View style={styles.root}>
         {itemShowType === 'vertical' ? (

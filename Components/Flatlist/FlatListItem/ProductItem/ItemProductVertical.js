@@ -4,7 +4,13 @@ import {View, Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import AverageRating from '../../../Rating/AverageRating';
 import FavoriteButton from '../../../Button/FavoriteButton/FavoriteButton';
 import SaleText from '../../../CustomText/SaleText';
+import {useSelector} from 'react-redux';
 const ItemProductVertical = ({item, navigation}) => {
+  const categoryList = useSelector(state => state.category.category);
+  const categoryItem = categoryList.find(
+    element => element.id === item.category,
+  );
+  item = {...item, category: categoryItem.name};
   return (
     <View style={styles.container}>
       <TouchableOpacity
