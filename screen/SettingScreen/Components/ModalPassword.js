@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
@@ -5,18 +6,16 @@ import Modal from 'react-native-modalbox';
 import Colors from '../../../utils/Color';
 import {View, StyleSheet, Text} from 'react-native';
 import {FloatingLabelInput} from 'react-native-floating-label-input';
-import {useDispatch, useSelector, shallowEqual} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {
   getOldPass,
   getNewPass,
   getRepeat,
   checkCondition,
   clearState,
-  updateState,
 } from './Slice';
 import {updatePassword} from '../../../redux/user/Slice';
 import CommonButton from '../../../Components/Button/CommonButton/CommonButton';
-import {Alert} from 'react-native';
 const ModalPassword = ({isOpen, pressButton, password}) => {
   const dispatch = useDispatch();
   const [swipeToClose, setSwipeToClose] = useState(true);
