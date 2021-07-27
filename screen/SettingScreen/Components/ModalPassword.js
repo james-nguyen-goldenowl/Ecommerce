@@ -4,18 +4,20 @@
 import React, {useEffect, useState} from 'react';
 import Modal from 'react-native-modalbox';
 import Colors from '../../../utils/Color';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, LogBox} from 'react-native';
 import {FloatingLabelInput} from 'react-native-floating-label-input';
 import {useDispatch, useSelector} from 'react-redux';
 import {
   getOldPass,
   getNewPass,
   getRepeat,
-  checkCondition,
+  checkRepeat,
   clearState,
 } from './Slice';
 import {updatePassword} from '../../../redux/user/Slice';
 import CommonButton from '../../../Components/Button/CommonButton/CommonButton';
+import {Alert} from 'react-native';
+LogBox.ignoreAllLogs();
 const ModalPassword = ({isOpen, pressButton, password}) => {
   const dispatch = useDispatch();
   const [swipeToClose, setSwipeToClose] = useState(true);
@@ -29,26 +31,13 @@ const ModalPassword = ({isOpen, pressButton, password}) => {
   const oldPass = useSelector(state => state.password.oldPass);
   const newPass = useSelector(state => state.password.newPass);
   const repeat = useSelector(state => state.password.repeat);
-  const message = useSelector(state => state.password.message);
-  const condition = useSelector(state => state.password.condition);
-  const [mess, setMess] = useState(message);
-  useEffect(() => {
-    console.log('line 37', mess);
-    console.log('line 38', message);
-    setMess(message);
-    console.log('line 37', mess);
-  }, [message]);
-  const changePassword = async () => {
-    dispatch(checkCondition());
-    setTimeout(() => {
-      console.log('message update', mess);
-      if (condition === true) {
-        dispatch(updatePassword(newPass));
-        dispatch(clearState());
-      } else {
-        console.log('mess', message);
-      }
-    }, 1000);
+  const changePassword = () => {
+    try {
+      dispatch(checkRepeat());
+      dispatch(updatePassword(newPass));
+    } catch (err) {
+      Alert.alert(err);
+    }
   };
   return (
     <Modal

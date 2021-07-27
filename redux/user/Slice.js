@@ -37,11 +37,13 @@ const profileSlice = createSlice({
       };
     },
     updatePassword: (state, action) => {
-      state.user.password = action.payload;
-      console.log(
-        '🚀 ~ file: Slice.js ~ line 41 ~ state.user.password',
-        state.user.password,
-      );
+      if (action.payload === state.user.password) {
+        throw 'New password must be different old password';
+      } else if (action.payload.length < 6) {
+        throw 'Password must be least 6 characters';
+      } else {
+        state.user.password = action.payload;
+      }
     },
   },
   extraReducers: {
