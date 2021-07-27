@@ -1,4 +1,11 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {
+  POPULAR,
+  NEWEST,
+  REVIEW,
+  LOW_HIGH,
+  HIGH_LOW,
+} from '../../../utils/SortTitle';
 const productCategorySlice = createSlice({
   name: 'productCategorySlice',
   initialState: {
@@ -21,11 +28,11 @@ const productCategorySlice = createSlice({
       state.sort = action.payload;
 
       switch (state.sort) {
-        case 'Popular':
+        case POPULAR:
           state.products = state.products;
           break;
-        case 'Newest':
-        case 'Customer review':
+        case NEWEST:
+        case REVIEW:
         case 'Price: lowest to high':
           sortArr = state.products.sort(function (a, b) {
             return a.price - b.price;

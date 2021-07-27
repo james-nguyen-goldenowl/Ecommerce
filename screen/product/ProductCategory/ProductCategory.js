@@ -94,7 +94,7 @@ const ProductCategory = ({navigation, route}) => {
               source={require('../../../public/sort.png')}
               style={{width: 14, height: 18}}
             />
-            <Text style={styles.titleOption}>Filter</Text>
+            <Text style={styles.titleOption}>Sort</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionGroup} onPress={onChangeView}>
             <Image
