@@ -3,12 +3,19 @@ import Modal from 'react-native-modalbox';
 import {View, StyleSheet, Platform, Text, FlatList} from 'react-native';
 import Colors from '../../../../../utils/Color';
 import ItemSort from './ItemSort';
+import {
+  POPULAR,
+  NEWEST,
+  REVIEW,
+  LOW_HIGH,
+  HIGH_LOW,
+} from '../../../../../utils/SortTitle';
 const options = [
-  {id: 1, title: 'Popular'},
-  {id: 2, title: 'Newest'},
-  {id: 3, title: 'Customer review'},
-  {id: 4, title: 'Price: lowest to high'},
-  {id: 5, title: 'Price: highest to low'},
+  {id: 1, title: POPULAR},
+  {id: 2, title: NEWEST},
+  {id: 3, title: REVIEW},
+  {id: 4, title: LOW_HIGH},
+  {id: 5, title: HIGH_LOW},
 ];
 const ModalSort = ({isOpen, press, navigation}) => {
   // eslint-disable-next-line no-unused-vars

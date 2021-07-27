@@ -11,8 +11,14 @@ import {
 import Colors from '../../../../utils/Color';
 import AverageRating from '../../../Rating/AverageRating';
 import FavoriteButton from '../../../Button/FavoriteButton/FavoriteButton';
+import {useSelector} from 'react-redux';
 const {width} = Dimensions.get('screen');
 const ItemProductHorizontal = ({item, navigation}) => {
+  const categoryList = useSelector(state => state.category.category);
+  const categoryItem = categoryList.find(
+    element => element.id === item.category,
+  );
+  item = {...item, category: categoryItem.name};
   return (
     <View style={styles.root}>
       <TouchableOpacity style={styles.container}>

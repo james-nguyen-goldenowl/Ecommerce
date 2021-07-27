@@ -30,6 +30,6 @@ const productsSlice = createSlice({
   },
 });
 const {actions, reducer} = productsSlice;
-const {clearState, sortProduct} = actions;
-export {clearState, sortProduct};
+const {clearState} = actions;
+export {clearState};
 export default reducer;

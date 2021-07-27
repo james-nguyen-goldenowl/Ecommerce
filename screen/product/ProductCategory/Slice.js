@@ -1,4 +1,11 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {
+  POPULAR,
+  NEWEST,
+  REVIEW,
+  LOW_HIGH,
+  HIGH_LOW,
+} from '../../../utils/SortTitle';
 const productCategorySlice = createSlice({
   name: 'productCategorySlice',
   initialState: {
@@ -21,24 +28,20 @@ const productCategorySlice = createSlice({
       state.sort = action.payload;
 
       switch (state.sort) {
-        case 'Popular':
+        case POPULAR:
           state.products = state.products;
           break;
-        case 'Newest':
-        case 'Customer review':
+        case NEWEST:
+        case REVIEW:
         case 'Price: lowest to high':
           sortArr = state.products.sort(function (a, b) {
-            let priceA = Number(a.price.replace(/[^0-9.-]+/g, ''));
-            let priceB = Number(b.price.replace(/[^0-9.-]+/g, ''));
-            return priceA - priceB;
+            return a.price - b.price;
           });
           state = {...state, products: sortArr};
           break;
         case 'Price: highest to low':
           sortArr = state.products.sort(function (a, b) {
-            let priceA = Number(a.price.replace(/[^0-9.-]+/g, ''));
-            let priceB = Number(b.price.replace(/[^0-9.-]+/g, ''));
-            return priceB - priceA;
+            return b.price - a.price;
           });
           state = {...state, products: sortArr};
           break;
@@ -49,7 +52,7 @@ const productCategorySlice = createSlice({
   },
 });
 const {actions, reducer} = productCategorySlice;
-const {getAll, getByID} = actions;
+const {getAll, getByID, sortProduct} = actions;
 const productCategoryReducer = reducer;
 export default productCategoryReducer;
-export {getAll, getByID};
+export {getAll, getByID, sortProduct};

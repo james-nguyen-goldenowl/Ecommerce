@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {useDispatch} from 'react-redux';
-import {sortProduct} from '../../../../../redux/products/Slice';
+import {sortProduct} from '../../Slice';
 const ItemSort = ({item}) => {
   const dispatch = useDispatch();
   const styles = StyleSheet.create({

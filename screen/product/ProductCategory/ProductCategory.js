@@ -26,8 +26,10 @@ const ProductCategory = ({navigation, route}) => {
     categoryID !== 'all' ? dispatch(getByID(categoryID)) : null;
   }, []);
   const productCategory = useSelector(state => state.productCategory.products);
-  // eslint-disable-next-line no-unused-vars
   const [data, setData] = useState(productCategory);
+  useEffect(() => {
+    setData(productCategory);
+  }, [productCategory]);
   const [itemShowType, setShowType] = useState('horizontal');
   // eslint-disable-next-line no-unused-vars
   const [selectedId, setSelectedId] = useState(null);
@@ -39,10 +41,6 @@ const ProductCategory = ({navigation, route}) => {
   const [isModal, setModal] = useState(false);
   const [press, setPress] = useState(0);
   const renderItem = ({item}) => {
-    // const categoryItem = categoryList.find(
-    //   element => element.id === item.category,
-    // );
-    // item = {...item, category: categoryItem.name};
     return (
       <View style={styles.root}>
         {itemShowType === 'vertical' ? (
@@ -96,7 +94,7 @@ const ProductCategory = ({navigation, route}) => {
               source={require('../../../public/sort.png')}
               style={{width: 14, height: 18}}
             />
-            <Text style={styles.titleOption}>Filter</Text>
+            <Text style={styles.titleOption}>Sort</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionGroup} onPress={onChangeView}>
             <Image
