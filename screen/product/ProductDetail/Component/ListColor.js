@@ -19,7 +19,7 @@ const Item = ({item, onPress, backgroundColor, textColor}) => (
 );
 
 const ListColor = ({product}) => {
-  const colorSelected = useSelector(state => state.productReducer.color);
+  const colorSelected = useSelector(state => state.productDetail.color);
   const [selectedId, setSelectedId] = useState(null);
   useEffect(() => {
     colorSelected !== null ? setSelectedId(colorSelected) : null;

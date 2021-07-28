@@ -19,7 +19,7 @@ const Item = ({item, onPress, backgroundColor, textColor}) => (
 );
 
 const ListSize = ({product}) => {
-  const sizeSelected = useSelector(state => state.productReducer.size);
+  const sizeSelected = useSelector(state => state.productDetail.size);
   const [selectedId, setSelectedId] = useState(null);
   useEffect(() => {
     sizeSelected !== null ? setSelectedId(sizeSelected) : null;

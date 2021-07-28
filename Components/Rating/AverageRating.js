@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    marginTop: 10,
+    // marginTop: 10,
     alignItems: 'center',
   },
   totalRating: {

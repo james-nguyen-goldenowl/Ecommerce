@@ -22,12 +22,10 @@ const styles = StyleSheet.create({
     width: 40,
     height: 24,
     borderRadius: 29,
-    position: 'absolute',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    // alignContent: 'center',
   },
   saleText: {
     color: 'white',

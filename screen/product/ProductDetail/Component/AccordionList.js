@@ -2,7 +2,18 @@ import React, {useState} from 'react';
 import Accordion from 'react-native-collapsible/Accordion';
 import {View, StyleSheet, Text} from 'react-native';
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
-const AccordionList = ({sections}) => {
+import Colors from '../../../../utils/Color';
+const SECTIONS = [
+  {
+    title: 'Shipping Info',
+    content: 'Lorem ipsum...',
+  },
+  {
+    title: 'Support',
+    content: 'Lorem ipsum...',
+  },
+];
+const AccordionList = () => {
   const [activeSections, setActiveSections] = useState([]);
   const renderSectionTitle = section => {
     return (
@@ -32,7 +43,7 @@ const AccordionList = ({sections}) => {
   return (
     <View style={styles.container}>
       <Accordion
-        sections={sections}
+        sections={SECTIONS}
         activeSections={activeSections}
         renderSectionTitle={renderSectionTitle}
         renderHeader={renderHeader}
@@ -50,9 +61,8 @@ const styles = StyleSheet.create({
   header: {
     borderTopWidth: 0.3,
     borderBottomWidth: 0.3,
-    borderTopColor: 'gray',
-    borderBottomColor: 'gray',
-    height: 50,
+    borderTopColor: Colors.GRAY,
+    borderBottomColor: Colors.GRAY,
     display: 'flex',
     flexDirection: 'row',
     alignContent: 'center',
@@ -60,9 +70,10 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 20,
     justifyContent: 'space-between',
+    paddingVertical: 17,
   },
   headerText: {
-    fontSize: 20,
+    fontSize: 16,
   },
 });
 export default AccordionList;

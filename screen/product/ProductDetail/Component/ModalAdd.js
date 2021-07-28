@@ -17,8 +17,8 @@ const ModalAdd = ({isOpen, pressButton, item}) => {
   useEffect(() => {
     setIsOpenModal(isOpen);
   }, [isOpen, pressButton]);
-  const sizeSelected = useSelector(state => state.productReducer.size);
-  const colorSelected = useSelector(state => state.productReducer.color);
+  const sizeSelected = useSelector(state => state.productDetail.size);
+  const colorSelected = useSelector(state => state.productDetail.color);
   const addOrder = () => {
     if (sizeSelected === null || colorSelected === null) {
       Alert.alert('Please choose size and color');
