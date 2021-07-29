@@ -23,6 +23,7 @@
     "react-native": "0.64.2",
     "react-native-button": "^3.0.1",
     "react-native-collapsible": "^1.6.0",
+    "react-native-flipper": "^0.100.0",
     "react-native-floating-label-input": "^1.3.9",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-modalbox": "^2.0.2",
@@ -35,6 +36,7 @@
     "reactotron-react-native": "^5.0.0",
     "reactotron-redux": "^3.1.3",
     "redux": "^4.1.0",
+    "redux-flipper": "^1.4.2",
     "redux-persist": "^6.0.0",
     "tree": "^0.1.3",
     "yup": "^0.32.9"
