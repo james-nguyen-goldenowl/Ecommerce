@@ -10,6 +10,7 @@ import productReducer from '../screen/product/ProductDetail/Slice';
 import cartScreenReducer from '../screen/Cart/Slice';
 import settingReducer from '../screen/SettingScreen/Slice';
 import passwordReducer from '../screen/SettingScreen/Components/Slice';
+import reviewReducer from '../screen/product/ReviewScreen/Slice';
 const rootReducer = combineReducers({
   products: productsReducer,
   user: profileReducer,
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   cartScreen: cartScreenReducer,
   setting: settingReducer,
   password: passwordReducer,
+  review: reviewReducer,
 });
 
 export default rootReducer;
