@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import RatingPercentageBar from '../../../Components/Rating/RatingPercentageBar';
 import {
   View,
@@ -15,21 +15,23 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import RatingBar from '../../../Components/Rating/RatingBar';
 import CommentReview from '../../../Components/Flatlist/FlatListItem/CommentReview';
 import ModalBoxRating from './Component/ModalBoxRating';
+import Colors from '../../../utils/Color';
+import {getRating, getPercent, getStatistical} from './Slice';
+import {useDispatch, useSelector} from 'react-redux';
 const {width, height} = Dimensions.get('window');
 LogBox.ignoreAllLogs();
 const ReviewScreen = ({navigation, route}) => {
   const averageRating = route.params.averageRating;
   const ratings = route.params.ratings;
-  const numberRating5Stars = ratings.filter(item => item.rate === 5).length;
-  const numberRating4Stars = ratings.filter(item => item.rate === 4).length;
-  const numberRating3Stars = ratings.filter(item => item.rate === 3).length;
-  const numberRating2Stars = ratings.filter(item => item.rate === 2).length;
-  const numberRating1Stars = ratings.filter(item => item.rate === 1).length;
-  const percent5Stars = (numberRating5Stars / ratings.length) * 100;
-  const percent4Stars = (numberRating4Stars / ratings.length) * 100;
-  const percent3Stars = (numberRating3Stars / ratings.length) * 100;
-  const percent2Stars = (numberRating2Stars / ratings.length) * 100;
-  const percent1Stars = (numberRating1Stars / ratings.length) * 100;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getRating(ratings));
+    dispatch(getStatistical());
+    dispatch(getPercent());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ratings]);
+  const statistical = useSelector(state => state.review.statisticalRating);
+  const percent = useSelector(state => state.review.percent);
   const [modalOpen, setModalOpen] = useState(false);
   const [pressButton, setPressButton] = useState(0);
   return (
@@ -42,10 +44,12 @@ const ReviewScreen = ({navigation, route}) => {
               style={{
                 width: '30%',
                 alignItems: 'center',
-                justifyContent: 'center',
+                justifyContent: 'flex-start',
               }}>
               <Text style={{fontSize: 72}}>{averageRating}</Text>
-              <Text style={{fontSize: 20}}>{ratings.length} ratings</Text>
+              <Text style={{fontSize: 14, color: Colors.GRAY}}>
+                {ratings.length} ratings
+              </Text>
             </View>
             <View style={styles.ratingRank}>
               <View style={styles.ratingLine}>
@@ -58,11 +62,11 @@ const ReviewScreen = ({navigation, route}) => {
                   <RatingBar numberStar={5} />
                 </View>
                 <View style={{width: '50%'}}>
-                  <RatingPercentageBar percentage={percent5Stars} />
+                  <RatingPercentageBar percentage={percent.percent5Stars} />
                 </View>
                 <Text
                   style={{width: '15%', textAlign: 'right', paddingRight: 15}}>
-                  {numberRating5Stars}
+                  {statistical.numberRating5Stars}
                 </Text>
               </View>
               <View style={styles.ratingLine}>
@@ -75,11 +79,11 @@ const ReviewScreen = ({navigation, route}) => {
                   <RatingBar numberStar={4} />
                 </View>
                 <View style={{width: '50%'}}>
-                  <RatingPercentageBar percentage={percent4Stars} />
+                  <RatingPercentageBar percentage={percent.percent4Stars} />
                 </View>
                 <Text
                   style={{width: '15%', textAlign: 'right', paddingRight: 15}}>
-                  {numberRating4Stars}
+                  {statistical.numberRating4Stars}
                 </Text>
               </View>
               <View style={styles.ratingLine}>
@@ -92,11 +96,11 @@ const ReviewScreen = ({navigation, route}) => {
                   <RatingBar numberStar={3} />
                 </View>
                 <View style={{width: '50%'}}>
-                  <RatingPercentageBar percentage={percent3Stars} />
+                  <RatingPercentageBar percentage={percent.percent3Stars} />
                 </View>
                 <Text
                   style={{width: '15%', textAlign: 'right', paddingRight: 15}}>
-                  {numberRating3Stars}
+                  {statistical.numberRating3Stars}
                 </Text>
               </View>
               <View style={styles.ratingLine}>
@@ -109,11 +113,11 @@ const ReviewScreen = ({navigation, route}) => {
                   <RatingBar numberStar={2} />
                 </View>
                 <View style={{width: '50%'}}>
-                  <RatingPercentageBar percentage={percent2Stars} />
+                  <RatingPercentageBar percentage={percent.percent2Stars} />
                 </View>
                 <Text
                   style={{width: '15%', textAlign: 'right', paddingRight: 15}}>
-                  {numberRating2Stars}
+                  {statistical.numberRating2Stars}
                 </Text>
               </View>
               <View style={styles.ratingLine}>
@@ -126,16 +130,22 @@ const ReviewScreen = ({navigation, route}) => {
                   <RatingBar numberStar={1} />
                 </View>
                 <View style={{width: '50%'}}>
-                  <RatingPercentageBar percentage={percent1Stars} />
+                  <RatingPercentageBar percentage={percent.percent1Stars} />
                 </View>
                 <Text
                   style={{width: '15%', textAlign: 'right', paddingRight: 15}}>
-                  {numberRating1Stars}
+                  {statistical.numberRating1Stars}
                 </Text>
               </View>
             </View>
           </View>
-          <Text style={{margin: 10, fontSize: 15}}>
+          <Text
+            style={{
+              marginLeft: 10,
+              fontSize: 24,
+              color: Colors.BLACK,
+              fontWeight: 'bold',
+            }}>
             {ratings.length} reviews
           </Text>
           <View style={{marginHorizontal: 0, width: '100%'}}>

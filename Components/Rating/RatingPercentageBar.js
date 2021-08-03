@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {Animated, View, StyleSheet} from 'react-native';
+import {Animated, View, StyleSheet, LogBox} from 'react-native';
+LogBox.ignoreAllLogs();
 const RatingPercentageBar = ({percentage}) => {
   const [animation] = useState(new Animated.Value(0));
   useEffect(() => {

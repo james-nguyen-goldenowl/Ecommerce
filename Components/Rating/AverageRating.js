@@ -6,7 +6,7 @@ const AverageRating = ({idProduct, navigation}) => {
   const ratingProduct = ratingData.filter(item => item.idProduct === idProduct);
   let sumRating = 0;
   ratingProduct.map(item => (sumRating = sumRating + parseInt(item.rate, 10)));
-  const averageRating = Math.round(sumRating / ratingProduct.length);
+  const averageRating = (sumRating / ratingProduct.length).toFixed(1);
   return (
     <TouchableOpacity
       style={styles.rating}
