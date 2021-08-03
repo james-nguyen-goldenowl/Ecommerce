@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
   shop: shopScreenReducer,
   productCategory: productCategoryReducer,
   cart: cartReducer,
-  productReducer: productReducer,
+  productDetail: productReducer,
   cartScreen: cartScreenReducer,
   setting: settingReducer,
   password: passwordReducer,

@@ -1,9 +1,10 @@
 import {StyleSheet, Dimensions} from 'react-native';
+import Colors from '../../../../utils/Color';
 const {width} = Dimensions.get('screen');
 const styles = StyleSheet.create({
   image: {
     width: width,
-    height: 350,
+    height: 413,
     resizeMode: 'cover',
   },
   contentContainer: {
@@ -43,17 +44,17 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
   },
   priceContainer: {
     display: 'flex',
     flexDirection: 'row',
-    padding: 5,
+    // padding: 5,
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'flex-start',
   },
   price: {
-    color: 'gray',
+    color: Colors.GRAY,
     textDecorationLine: 'line-through',
     fontSize: 20,
   },
@@ -66,9 +67,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     display: 'flex',
     justifyContent: 'center',
-    alignContent: 'center',
+    alignItems: 'center',
     width: width,
     height: 100,
+    marginTop: 17,
   },
   btnAdd: {
     height: 50,
@@ -85,6 +87,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignContent: 'center',
+  },
+  categoryText: {
+    color: Colors.GRAY,
+  },
+  recommendTitle: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 24,
+    marginHorizontal: 16,
+  },
+  recommendList: {
+    marginLeft: 16,
   },
 });
 export default styles;

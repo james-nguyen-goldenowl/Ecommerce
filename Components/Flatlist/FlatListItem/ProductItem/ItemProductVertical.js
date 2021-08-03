@@ -10,7 +10,9 @@ const ItemProductVertical = ({item, navigation}) => {
   const categoryItem = categoryList.find(
     element => element.id === item.category,
   );
-  item = {...item, category: categoryItem.name};
+  categoryItem != undefined
+    ? (item = {...item, category: categoryItem.name})
+    : null;
   return (
     <View style={styles.container}>
       <TouchableOpacity
